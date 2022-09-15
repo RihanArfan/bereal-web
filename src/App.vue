@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header class="mb-3">
+  <header class="mb-5">
     <img
       alt="BeReal logo"
       src="@/assets/text.png"
