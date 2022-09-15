@@ -8,7 +8,15 @@ import AutoImport from "unplugin-auto-import/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), Components({}), AutoImport({})],
+  plugins: [
+    vue(),
+    Components({}),
+    AutoImport({
+      include: [/\.vue$/, /\.vue\?vue/],
+      imports: ["vue", "vue-router"],
+      dirs: ["./composables/**", "./components/**"],
+    }),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

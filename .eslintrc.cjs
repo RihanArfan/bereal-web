@@ -19,4 +19,7 @@ module.exports = {
     ecmaVersion: "latest",
   },
   ignorePatterns: ["auto-imports.d.ts", "components.d.ts"],
+  rules: {
+    "no-undef": "off",
+  },
 };
