@@ -1,19 +1,24 @@
-import ky from "ky";
+type Env = {
+  GOOGLE_SECRET: string;
+};
 
-export const onRequestPost: PagesFunction = async ({ request, env }) => {
+export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const body = await request.json<{ refresh_token: string }>();
 
-  const response = await ky
-    .post("***REMOVED***", {
-      json: {
-        refresh_token: body.refresh_token,
-        grant_type: "refresh_token",
-      },
-      searchParams: { key: env.GOOGLE_SECRET },
-      headers: { "User-Agent": "RihanArfan/bereal-web" },
-    })
-    .text();
+  const url = new URL("***REMOVED***");
+  url.searchParams.set("key", env.GOOGLE_SECRET);
 
-  const headers = { "content-type": "application/json;charset=UTF-8" };
-  return new Response(response, { headers });
+  request = new Request(url.toString(), {
+    body: JSON.stringify({
+      refresh_token: body.refresh_token,
+      grant_type: "refresh_token",
+    }),
+    method: "post",
+  });
+
+  request.headers.set("Content-Type", "application/json");
+  request.headers.set("Accept", "application/json");
+  request.headers.set("User-Agent", "RihanArfan/bereal-web");
+
+  return await fetch(request);
 };
