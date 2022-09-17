@@ -13,6 +13,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "dayjs": "^1.11.5",
     "jwt-decode": "^3.1.2",
     "ky": "^0.31.3",
     "pinia": "^2.0.21",

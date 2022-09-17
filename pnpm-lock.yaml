@@ -13,6 +13,7 @@ specifiers:
   '@vueuse/core': ^9.2.0
   autoprefixer: ^10.4.10
   cypress: ^10.7.0
+  dayjs: ^1.11.5
   eslint: ^8.22.0
   eslint-plugin-cypress: ^2.12.1
   eslint-plugin-vue: ^9.3.0
@@ -37,6 +38,7 @@ specifiers:
   wrangler: ^2.1.4
 
 dependencies:
+  dayjs: 1.11.5
   jwt-decode: 3.1.2
   ky: 0.31.3
   pinia: 2.0.22_uxrvejtcwrakwzzo6hlouuo2vq
@@ -1417,7 +1419,6 @@ packages:
 
   /dayjs/1.11.5:
     resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
-    dev: true
 
   /debug/3.2.7_supports-color@8.1.1:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}

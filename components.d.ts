@@ -9,6 +9,8 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserIcon: typeof import('./src/components/UserIcon.vue')['default']
     UserPost: typeof import('./src/components/UserPost.vue')['default']
+    UserPostHeader: typeof import('./src/components/UserPostHeader.vue')['default']
   }
 }
