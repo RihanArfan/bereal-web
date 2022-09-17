@@ -1,4 +1,5 @@
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import { defineStore } from "pinia";
 import ky from "ky";
 
@@ -31,13 +32,31 @@ export const useAuthStore = defineStore("auth", () => {
       return false;
     }
 
-    const { access_token, refresh_token } = await ky
-      .post("/api/auth/token", { json: { refresh_token: refresh.value } })
-      .json<TokenResponse>();
+    try {
+      const { access_token, refresh_token } = await ky
+        .post("/api/auth/token", { json: { refresh_token: refresh.value } })
+        .json<TokenResponse>();
 
-    token.value = access_token;
-    refresh.value = refresh_token;
+      token.value = access_token;
+      refresh.value = refresh_token;
+    } catch (error) {
+      console.error(error);
+
+      refresh.value = "";
+      const router = useRouter();
+      router.push({ name: "login", query: { error: "refresh-token-invalid" } });
+    }
   };
 
-  return { token, userId, isLoggedIn, isExpired, refreshToken };
+  const setRefreshToken = (refreshToken: string) =>
+    (refresh.value = refreshToken);
+
+  return {
+    token,
+    userId,
+    isLoggedIn,
+    isExpired,
+    refreshToken,
+    setRefreshToken,
+  };
 });
