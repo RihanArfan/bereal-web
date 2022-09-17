@@ -17,7 +17,7 @@ const { isLoading: isLocationLoading, data } = useLocationQuery(
   { enabled: !!props.post.location }
 );
 const location = computed(
-  () => `${data.value?.address.city},${data.value?.address.country}`
+  () => `${data.value?.address.city}, ${data.value?.address.country}`
 );
 </script>
 
