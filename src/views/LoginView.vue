@@ -23,9 +23,9 @@ const updateRefreshToken = async () => {
   <h2 class="text-xl font-semibold">Developer Login</h2>
   <label class="block my-1" for="token">Refresh token</label>
   <input
-    class="border rounded w-full py-1 px-2 text-gray-700 mb-5 font-mono"
-    v-model="token"
     id="token"
+    v-model="token"
+    class="border rounded w-full py-1 px-2 text-gray-700 mb-5 font-mono"
     aria-label="Refresh token input"
   />
   <button
