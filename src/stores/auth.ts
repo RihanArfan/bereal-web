@@ -5,7 +5,7 @@ import ky from "ky";
 import jwtDecode, { type JwtPayload } from "jwt-decode";
 import { useLocalStorage } from "@vueuse/core";
 
-import type { TokenRequest } from "@/types/types";
+import type { TokenResponse } from "@/types/types";
 
 export const useAuthStore = defineStore("auth", () => {
   const token = ref<string>();
@@ -33,7 +33,7 @@ export const useAuthStore = defineStore("auth", () => {
 
     const { access_token, refresh_token } = await ky
       .post("/api/auth/token", { json: { refresh_token: refresh.value } })
-      .json<TokenRequest>();
+      .json<TokenResponse>();
 
     token.value = access_token;
     refresh.value = refresh_token;
