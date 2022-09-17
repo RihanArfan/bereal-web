@@ -6,6 +6,7 @@ export interface Date {
 export interface User {
   id: string;
   username: string;
+  profilePicture?: ProfilePicture;
 }
 
 export interface ProfilePicture {
@@ -14,11 +15,7 @@ export interface ProfilePicture {
   url: string;
 }
 
-export interface UserWithProfilePicture extends User {
-  profilePicture: ProfilePicture;
-}
-
-export interface Friend extends UserWithProfilePicture {
+export interface Friend extends User {
   fullname: string;
   status: string;
 }
@@ -27,11 +24,16 @@ export interface RealMoji {
   id: string;
   uid: string;
   userName: string;
-  user: UserWithProfilePicture;
+  user: User;
   emoji: string;
   type: string;
   uri: string;
   date: Date;
+}
+
+export interface Location {
+  _latitude: number;
+  _longitude: number;
 }
 
 export interface Post {
@@ -52,6 +54,8 @@ export interface Post {
   members: string[];
   lateInSeconds: number;
   isPublic: boolean;
+  location?: Location;
+  caption?: string;
   retakeCounter: number;
   creationDate: Date;
   updatedAt: number;
@@ -62,7 +66,7 @@ export interface Post {
   screenshotsV2: any[];
 }
 
-export interface TokenRequest {
+export interface TokenResponse {
   access_token: string;
   refresh_token: string;
   expires_in: number;
