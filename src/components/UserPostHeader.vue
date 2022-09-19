@@ -16,8 +16,13 @@ const { isLoading: isLocationLoading, data } = useLocationQuery(
   props.post.location?._longitude || 0,
   { enabled: !!props.post.location }
 );
+
 const location = computed(
   () => `${data.value?.address.city}, ${data.value?.address.country}`
+);
+
+const humanLateTime = computed(() =>
+  dayjs.duration(props.post.lateInSeconds, "s").humanize()
 );
 </script>
 
@@ -30,18 +35,22 @@ const location = computed(
         {{ post.user.username }}
       </p>
 
-      <p v-if="post.location" class="text-xs text-gray-500">
+      <p v-if="post.location" class="text-xs text-gray-500 truncate">
         <span v-if="isLocationLoading">...</span>
         {{ location }}
       </p>
     </div>
 
-    <p class="justify-self-end truncate text-sm ml-1 text-gray-300">
-      {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
+    <div class="justify-self-end flex truncate text-sm ml-2 text-gray-300">
+      <p :class="{ 'hidden sm:inline-block': !!post.lateInSeconds }">
+        {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
+      </p>
 
-      <span v-if="post.lateInSeconds">
-        ({{ dayjs.duration(post.lateInSeconds, "s").humanize() }} late)
-      </span>
-    </p>
+      <p v-if="post.lateInSeconds" class="flex">
+        <span class="hidden sm:inline ml-1">(</span>
+        {{ humanLateTime }} late
+        <span class="hidden sm:inline">)</span>
+      </p>
+    </div>
   </div>
 </template>
