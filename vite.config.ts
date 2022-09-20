@@ -22,11 +22,11 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: "autoUpdate",
-      devOptions: {
-        enabled: true,
-      },
+      // devOptions: {
+      //   enabled: true,
+      // },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png}"],
+        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
       },
       includeAssets: ["favicon.ico", "/icons/apple-touch-icon.png"],
       manifest: {
