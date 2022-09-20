@@ -20,7 +20,7 @@ const alt = (primary: boolean) =>
     <div class="relative">
       <img
         :src="imageUrl(!isSecondaryLarge)"
-        class="rounded-xl"
+        class="rounded-xl bg-zinc-900"
         :alt="alt(!isSecondaryLarge)"
         loading="lazy"
         :width="post.imageWidth"
@@ -28,7 +28,7 @@ const alt = (primary: boolean) =>
       />
 
       <img
-        class="rounded-xl mt-3 ml-3 absolute top-0 left-0 w-1/4 border-2 border-black cursor-pointer"
+        class="rounded-xl mt-3 ml-3 absolute top-0 left-0 w-1/4 border-2 border-black cursor-pointer bg-zinc-800"
         :src="imageUrl(isSecondaryLarge)"
         :alt="alt(isSecondaryLarge)"
         loading="lazy"
