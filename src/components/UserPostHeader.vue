@@ -28,7 +28,10 @@ const humanLateTime = computed(() =>
 
 <template>
   <div class="flex items-center mb-2 px-3">
-    <UserIcon :user="post.user" />
+    <UserIcon
+      :profile-picture="post.user.profilePicture"
+      :username="post.userName"
+    />
 
     <div class="grow ml-3">
       <p class="text-md font-medium leading-tight">
