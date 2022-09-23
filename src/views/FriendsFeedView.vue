@@ -22,7 +22,10 @@ const othersPosts = computed(() =>
 </script>
 
 <template>
-  <span v-if="isLoading">Loading...</span>
+  <template v-if="isLoading">
+    <SkeletonUserPost v-for="x in 3" :key="x" class="mb-5" />
+  </template>
+
   <span v-else-if="isError">Error: {{ error }}</span>
 
   <template v-else>
