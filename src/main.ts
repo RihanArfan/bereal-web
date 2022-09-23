@@ -7,6 +7,8 @@ import { registerSW } from "virtual:pwa-register";
 import App from "./App.vue";
 import router from "./router";
 
+import { useAccountStore } from "@/stores/account";
+
 import "./assets/styles.css";
 
 const app = createApp(App);
@@ -17,8 +19,10 @@ app.use(VueQueryPlugin);
 
 app.mount("#app");
 
-const intervalMS = 60 * 60 * 500; // 30 minutes
+const accountStore = useAccountStore();
+accountStore.fetchAccount();
 
+const intervalMS = 60 * 60 * 500; // 30 minutes
 registerSW({
   onRegisteredSW(swUrl, r) {
     r &&

@@ -75,3 +75,43 @@ export interface TokenResponse {
   user_id: string;
   project_id: string;
 }
+
+export interface Account {
+  id: string;
+  username: string;
+  birthdate: string;
+  fullname: string;
+  profilePicture?: ProfilePicture;
+  realmojis?: AccountRealmoji[];
+  devices: Device[];
+  stats: {
+    postTotal: number;
+  };
+  canDeletePost: boolean;
+  canUpdateRegion: boolean;
+  phoneNumber: string;
+  biography: string;
+  location: string;
+  countryCode: string;
+  region: string;
+  createdAt: string;
+}
+
+export interface AccountRealmoji {
+  emoji: string;
+  media: {
+    url: string;
+    width: number;
+    height: number;
+  };
+}
+
+export interface Device {
+  clientVersion: string;
+  device: string;
+  deviceId: string;
+  pushToken: string;
+  platform: string;
+  language: string;
+  timezone: string;
+}
