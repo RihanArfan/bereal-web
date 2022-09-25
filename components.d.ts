@@ -17,5 +17,6 @@ declare module '@vue/runtime-core' {
     UserIcon: typeof import('./src/components/UserIcon.vue')['default']
     UserPost: typeof import('./src/components/UserPost.vue')['default']
     UserPostHeader: typeof import('./src/components/UserPostHeader.vue')['default']
+    UserPostRealMojis: typeof import('./src/components/UserPostRealMojis.vue')['default']
   }
 }

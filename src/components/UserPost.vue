@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Post } from "@/types/types";
+
 const props = defineProps<{ post: Post }>();
 
 const isSecondaryLarge = ref(false);
@@ -36,6 +37,8 @@ const alt = (primary: boolean) =>
         :height="post.imageHeight"
         @click="isSecondaryLarge = !isSecondaryLarge"
       />
+
+      <UserPostRealMojis :realmojis="post.realMojis" />
     </div>
 
     <p v-if="post.caption" class="px-3 mt-1 text-md font-medium">
