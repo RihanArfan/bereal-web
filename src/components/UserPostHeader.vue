@@ -40,7 +40,7 @@ const humanLateTime = computed(() =>
 
       <p v-if="post.location" class="text-xs text-gray-500 truncate">
         <span v-if="isLocationLoading">...</span>
-        {{ location }}
+        <template v-else>{{ location }}</template>
       </p>
     </div>
 
