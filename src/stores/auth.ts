@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { defineStore } from "pinia";
-import ky from "ky";
+import ky, { type Options } from "ky";
 
 import jwtDecode, { type JwtPayload } from "jwt-decode";
 import { useLocalStorage } from "@vueuse/core";
@@ -33,18 +33,35 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     try {
+      const requestOptions: Options = {
+        json: { refresh_token: refresh.value },
+        hooks: {
+          afterResponse: [
+            async (request, options, response) => {
+              if (response.status === 403) {
+                console.error(request);
+
+                refresh.value = "";
+
+                const router = useRouter();
+                router.push({
+                  name: "login",
+                  query: { error: "refresh token invalid" },
+                });
+              }
+            },
+          ],
+        },
+      };
+
       const { access_token, refresh_token } = await ky
-        .post("/api/auth/token", { json: { refresh_token: refresh.value } })
+        .post("/api/auth/token", requestOptions)
         .json<TokenResponse>();
 
       token.value = access_token;
       refresh.value = refresh_token;
     } catch (error) {
       console.error(error);
-
-      refresh.value = "";
-      const router = useRouter();
-      router.push({ name: "login", query: { error: "refresh-token-invalid" } });
     }
   };
 
