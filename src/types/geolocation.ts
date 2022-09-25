@@ -5,6 +5,7 @@ interface Address {
   suburb?: string;
   city_district?: string;
   city?: string;
+  town?: string;
   "ISO3166-2-lvl8"?: string;
   municipality?: string;
   state_district?: string;

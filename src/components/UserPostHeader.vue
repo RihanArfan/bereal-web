@@ -18,7 +18,10 @@ const { isLoading: isLocationLoading, data } = useLocationQuery(
 );
 
 const location = computed(
-  () => `${data.value?.address.city}, ${data.value?.address.country}`
+  () =>
+    `${data.value?.address.town ?? data.value?.address.city}, ${
+      data.value?.address.country
+    }`
 );
 
 const humanLateTime = computed(() =>
@@ -44,12 +47,14 @@ const humanLateTime = computed(() =>
       </p>
     </div>
 
-    <div class="justify-self-end flex truncate text-sm ml-2 text-gray-300">
+    <div
+      class="justify-self-end flex truncate text-sm font-medium ml-2 text-gray-300"
+    >
       <p :class="{ 'hidden sm:inline-block': !!post.lateInSeconds }">
         {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
       </p>
 
-      <p v-if="post.lateInSeconds" class="flex">
+      <p v-if="post.lateInSeconds" class="flex sm:font-light">
         <span class="hidden sm:inline ml-1">(</span>
         {{ humanLateTime }} late
         <span class="hidden sm:inline">)</span>
