@@ -28,7 +28,7 @@ export const useAuthStore = defineStore("auth", () => {
 
   const refreshToken = async () => {
     if (!isLoggedIn.value) {
-      console.log("Missing refresh token!");
+      console.info("Missing refresh token!");
       return false;
     }
 
