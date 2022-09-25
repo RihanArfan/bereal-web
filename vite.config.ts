@@ -75,7 +75,6 @@ export default defineConfig({
             id: "id1459645446",
           },
         ],
-        prefer_related_applications: false,
         shortcuts: [
           {
             name: "Open discovery",
@@ -84,21 +83,9 @@ export default defineConfig({
             description: "View BeReals posted publicly",
             icons: [
               {
-                src: "/icons/shortcuts/face-grin-stars-regular.svg",
-                type: "image/svg+xml",
-                sizes: "any",
-              },
-            ],
-          },
-          {
-            name: "Add friend",
-            url: "/friends/add",
-            description: "Add a new friend",
-            icons: [
-              {
-                src: "/icons/shortcuts/user-plus-solid.svg",
-                type: "image/svg+xml",
-                sizes: "any",
+                src: "/icons/shortcuts/face-grin-stars-regular.png",
+                type: "image/png",
+                sizes: "512x512",
               },
             ],
           },
