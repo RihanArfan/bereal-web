@@ -2,12 +2,25 @@
 import Popper from "vue3-popper";
 import type { RealMoji } from "@/types/types";
 
-const props = defineProps<{ realmojis: RealMoji[] }>();
+const props = defineProps<{
+  realmojis: RealMoji[];
+  size?: 8 | 12;
+}>();
+
 const firstSixRealmojis = computed(() => props.realmojis.slice(0, 6));
+
+const sizeClass = computed(() => {
+  switch (props.size) {
+    case 8:
+      return "w-8 h-8";
+    default:
+      return "w-12 h-12";
+  }
+});
 </script>
 
 <template>
-  <div class="absolute bottom-0 left-0 ml-3 mb-3 flex w-full">
+  <div class="flex w-full">
     <Popper
       v-for="(realmoji, index) in firstSixRealmojis"
       :key="realmoji.id"
@@ -21,7 +34,8 @@ const firstSixRealmojis = computed(() => props.realmojis.slice(0, 6));
         :src="realmoji.uri"
         :alt="`${realmoji.userName} reacted ${realmoji.emoji}`"
         loading="lazy"
-        class="w-12 h-12 rounded-full border-2 border-black"
+        class="rounded-full border-2 border-black"
+        :class="sizeClass"
       />
 
       <template #content>
