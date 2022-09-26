@@ -29,7 +29,7 @@ const othersPosts = computed(() =>
   <span v-else-if="isError">Error: {{ error }}</span>
 
   <template v-else>
-    <UserPost v-if="myPost" :post="myPost" class="mb-5" />
+    <MyPost v-if="myPost" :post="myPost" :small="true" class="mb-5" />
 
     <UserPost
       v-for="post in othersPosts"

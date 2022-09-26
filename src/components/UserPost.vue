@@ -22,7 +22,10 @@ defineProps<{ post: Post }>();
       :username="post.userName"
     >
       <template #footer>
-        <UserPostRealMojis :realmojis="post.realMojis" />
+        <UserPostRealMojis
+          :realmojis="post.realMojis"
+          class="absolute bottom-0 left-0 ml-3 mb-3"
+        />
       </template>
     </PostPhotos>
 
