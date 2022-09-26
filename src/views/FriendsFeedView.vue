@@ -23,12 +23,13 @@ const othersPosts = computed(() =>
 
 <template>
   <template v-if="isLoading">
+    <SkeletonMyPost :small="true" class="mb-5" />
     <SkeletonUserPost v-for="x in 3" :key="x" class="mb-5" />
   </template>
 
   <span v-else-if="isError">Error: {{ error }}</span>
 
-  <template v-else>
+  <template v-if="data">
     <MyPost v-if="myPost" :post="myPost" :small="true" class="mb-5" />
 
     <UserPost
