@@ -7,11 +7,8 @@ import type { Account } from "@/types/types";
 export const useAccountStore = defineStore("account", () => {
   const account = ref<Account>();
 
-  const fetchAccount = async () => {
-    console.log("Fetching account");
-    account.value = await useApi().get("person/me").json<Account>();
-    console.log(account.value);
-  };
+  const fetchAccount = async () =>
+    (account.value = await useApi().get("person/me").json<Account>());
 
   return { account, fetchAccount };
 });
