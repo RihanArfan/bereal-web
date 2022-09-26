@@ -15,9 +15,21 @@ const router = createRouter({
       component: () => import("@/views/AccountView.vue"),
     },
     {
-      path: "/",
-      name: "friends-feed",
-      component: () => import("@/views/FriendsFeedView.vue"),
+      path: "",
+      name: "feeds",
+      component: () => import("@/components/FeedLayout.vue"),
+      children: [
+        {
+          path: "",
+          name: "friends-feed",
+          component: () => import("@/views/FriendsFeedView.vue"),
+        },
+        {
+          path: "discovery",
+          name: "discovery-feed",
+          component: () => import("@/views/DiscoveryFeedView.vue"),
+        },
+      ],
     },
   ],
 });

@@ -7,12 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    FeedLayout: typeof import('./src/components/FeedLayout.vue')['default']
     MyPost: typeof import('./src/components/MyPost.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     PostPhotos: typeof import('./src/components/PostPhotos.vue')['default']
     RealmojiWithIcon: typeof import('./src/components/RealmojiWithIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SkeletonMyPost: typeof import('./src/components/skeleton/SkeletonMyPost.vue')['default']
     SkeletonUserIcon: typeof import('./src/components/skeleton/SkeletonUserIcon.vue')['default']
     SkeletonUserPost: typeof import('./src/components/skeleton/SkeletonUserPost.vue')['default']
     SkeletonUserPostHeader: typeof import('./src/components/skeleton/SkeletonUserPostHeader.vue')['default']
