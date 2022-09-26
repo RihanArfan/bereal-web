@@ -1,29 +1,42 @@
-interface Address {
-  leisure?: string;
-  house_number?: string;
-  road?: string;
-  suburb?: string;
-  city_district?: string;
-  city?: string;
-  town?: string;
-  "ISO3166-2-lvl8"?: string;
-  municipality?: string;
-  state_district?: string;
-  state?: string;
-  "ISO3166-2-lvl4": string;
-  postcode?: string;
-  country: string;
-  country_code: string;
+export interface ReverseGeolocationResponse {
+  authenticationResultCode: string;
+  brandLogoUri: string;
+  copyright: string;
+  resourceSets: {
+    estimatedTotal: number;
+    resources: Resource[];
+  }[];
+  statusCode: number;
+  statusDescription: string;
+  traceId: string;
 }
 
-export interface ReverseGeolocationResponse {
-  place_id: number;
-  licence: string;
-  osm_type: string;
-  osm_id: number;
-  lat: string;
-  lon: string;
-  display_name: string;
+export interface Resource {
+  __type: string;
+  bbox: number[];
+  name: string;
+  point: Point;
   address: Address;
-  boundingbox: string[];
+  confidence: string;
+  entityType: string;
+  geocodePoints: GeocodePoint[];
+  matchCodes: string[];
+}
+
+export interface Address {
+  adminDistrict: string;
+  adminDistrict2: string;
+  countryRegion: string;
+  formattedAddress: string;
+  locality: string;
+}
+
+export interface Point {
+  type: string;
+  coordinates: number[];
+}
+
+export interface GeocodePoint extends Point {
+  calculationMethod: string;
+  usageTypes: string[];
 }
