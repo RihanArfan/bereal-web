@@ -31,7 +31,9 @@ const humanLateTime = computed(() =>
       }"
       :username="post.userName"
     />
+
     <UserPostRealMojis
+      v-if="post.realMojis.length"
       :realmojis="post.realMojis"
       :size="8"
       class="justify-center -mt-4 relative"
