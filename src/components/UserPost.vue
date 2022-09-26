@@ -1,45 +1,30 @@
 <script setup lang="ts">
 import type { Post } from "@/types/types";
 
-const props = defineProps<{ post: Post }>();
-
-const isSecondaryLarge = ref(false);
-
-const imageUrl = (primary: boolean) =>
-  primary ? props.post.photoURL : props.post.secondaryPhotoURL;
-
-const alt = (primary: boolean) =>
-  primary
-    ? `${props.post.userName}'s photo'`
-    : `${props.post.userName}'s secondary photo`;
+defineProps<{ post: Post }>();
 </script>
 
 <template>
   <div>
     <UserPostHeader :post="post" />
 
-    <div class="relative">
-      <img
-        :src="imageUrl(!isSecondaryLarge)"
-        class="rounded-xl bg-zinc-900"
-        :alt="alt(!isSecondaryLarge)"
-        loading="lazy"
-        :width="post.imageWidth"
-        :height="post.imageHeight"
-      />
-
-      <img
-        class="rounded-xl mt-3 ml-3 absolute top-0 left-0 w-1/4 border-2 border-black cursor-pointer bg-zinc-800"
-        :src="imageUrl(isSecondaryLarge)"
-        :alt="alt(isSecondaryLarge)"
-        loading="lazy"
-        :width="post.imageWidth"
-        :height="post.imageHeight"
-        @click="isSecondaryLarge = !isSecondaryLarge"
-      />
-
-      <UserPostRealMojis :realmojis="post.realMojis" />
-    </div>
+    <PostPhotos
+      :primary-photo="{
+        url: post.photoURL,
+        height: post.imageHeight,
+        width: post.imageWidth,
+      }"
+      :secondary-photo="{
+        url: post.secondaryPhotoURL,
+        height: post.secondaryImageHeight,
+        width: post.secondaryImageWidth,
+      }"
+      :username="post.userName"
+    >
+      <template #footer>
+        <UserPostRealMojis :realmojis="post.realMojis" />
+      </template>
+    </PostPhotos>
 
     <p v-if="post.caption" class="px-3 mt-1 text-md font-medium">
       {{ post.caption }}
