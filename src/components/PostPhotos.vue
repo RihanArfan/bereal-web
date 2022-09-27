@@ -31,8 +31,8 @@ const alt = (primary: boolean) =>
       class="rounded-xl bg-zinc-900"
       :alt="alt(!isSecondaryLarge)"
       loading="lazy"
-      :width="primaryPhoto.height"
-      :height="primaryPhoto.width"
+      :width="primaryPhoto.width"
+      :height="primaryPhoto.height"
     />
 
     <img
@@ -40,8 +40,8 @@ const alt = (primary: boolean) =>
       :src="imageUrl(isSecondaryLarge)"
       :alt="alt(isSecondaryLarge)"
       loading="lazy"
-      :width="primaryPhoto.height"
-      :height="primaryPhoto.width"
+      :width="primaryPhoto.width"
+      :height="primaryPhoto.height"
       @click="isSecondaryLarge = !isSecondaryLarge"
     />
 
