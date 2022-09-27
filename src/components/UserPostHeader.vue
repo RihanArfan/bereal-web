@@ -19,9 +19,7 @@ const { isLoading: isLocationLoading, data } = useLocationQuery(
 
 const location = computed(
   () =>
-    `${data.value?.address.town ?? data.value?.address.city}, ${
-      data.value?.address.country
-    }`
+    `${data.value?.resourceSets[0].resources[0]?.address.locality}, ${data.value?.resourceSets[0].resources[0]?.address.countryRegion}`
 );
 
 const humanLateTime = computed(() =>
