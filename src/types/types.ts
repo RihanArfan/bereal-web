@@ -6,10 +6,10 @@ export interface Date {
 export interface User {
   id: string;
   username: string;
-  profilePicture?: ProfilePicture;
+  profilePicture?: Picture;
 }
 
-export interface ProfilePicture {
+export interface Picture {
   height: number;
   width: number;
   url: string;
@@ -81,7 +81,7 @@ export interface Account {
   username: string;
   birthdate: string;
   fullname: string;
-  profilePicture?: ProfilePicture;
+  profilePicture?: Picture;
   realmojis?: AccountRealmoji[];
   devices: Device[];
   stats: {
@@ -99,11 +99,7 @@ export interface Account {
 
 export interface AccountRealmoji {
   emoji: string;
-  media: {
-    url: string;
-    width: number;
-    height: number;
-  };
+  media: Picture;
 }
 
 export interface Device {
@@ -114,4 +110,19 @@ export interface Device {
   platform: string;
   language: string;
   timezone: string;
+}
+
+export interface Memories {
+  data: Memory[];
+  next: string;
+  memoriesSynchronized: boolean;
+}
+
+export interface Memory {
+  id: string;
+  thumbnail: Picture;
+  primary: Picture;
+  secondary: Picture;
+  isLate: boolean;
+  memoryDay: string;
 }
