@@ -7,6 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AccountIcon: typeof import('./src/components/icons/AccountIcon.vue')['default']
+    BackIcon: typeof import('./src/components/icons/BackIcon.vue')['default']
     FeedLayout: typeof import('./src/components/FeedLayout.vue')['default']
     MyPost: typeof import('./src/components/MyPost.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
