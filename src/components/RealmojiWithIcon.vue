@@ -14,7 +14,7 @@ defineProps<{ realmoji: AccountRealmoji }>();
       :height="realmoji.media.height"
     />
     <div
-      class="absolute w-10 h-10 text-2xl text-center font-bold text-white bg-zinc-100 rounded-full border-2 border-zinc-100"
+      class="absolute w-7 h-7 text-sm text-center font-bold text-white bg-zinc-100 rounded-full border-2 border-zinc-100"
     >
       {{ realmoji.emoji }}
     </div>
