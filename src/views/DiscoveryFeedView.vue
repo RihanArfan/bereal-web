@@ -10,6 +10,7 @@ const friendsFeedFetcher = async () =>
 
 const fetchDiscoveryFeed = () =>
   useInfiniteQuery(["discovery-feed"], friendsFeedFetcher, {
+    refetchOnWindowFocus: false,
     getNextPageParam: (lastPage) => lastPage.posts.at(-1)?.id,
   });
 const { isLoading, isError, isFetchingNextPage, data, error, fetchNextPage } =
