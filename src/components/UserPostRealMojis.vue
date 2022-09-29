@@ -39,7 +39,7 @@ const sizeClass = computed(() => {
       />
 
       <template #content>
-        <div class="text-center max-w-xs">
+        <div class="max-w-xs text-center">
           <img
             :src="realmoji.uri"
             :alt="`${realmoji.userName} reacted ${realmoji.emoji}`"
@@ -48,7 +48,7 @@ const sizeClass = computed(() => {
           />
 
           <div
-            class="absolute bottom-0 left-0 mb-2 ml-2 text-sm text-center font-thin bg-zinc-100 rounded-full px-1 text-black"
+            class="absolute bottom-0 left-0 mb-2 ml-2 rounded-full bg-zinc-100 px-1 text-center text-sm font-thin text-black"
           >
             {{ realmoji.emoji }}
             @<span class="font-medium">{{ realmoji.userName }}</span>
@@ -59,7 +59,7 @@ const sizeClass = computed(() => {
 
     <div
       v-if="realmojis.length > 6"
-      class="-ml-2 w-12 h-12 rounded-full border border-black text-black bg-zinc-300 text-center font-bold flex items-center justify-center"
+      class="-ml-2 flex h-12 w-12 items-center justify-center rounded-full border border-black bg-zinc-300 text-center font-bold text-black"
     >
       +{{ props.realmojis.length - 6 }}
     </div>

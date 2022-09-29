@@ -1,9 +1,9 @@
 <template>
-  <div class="flex items-center mb-2 px-3">
+  <div class="mb-2 flex items-center px-3">
     <SkeletonUserIcon />
 
-    <div class="grow ml-3">
-      <div class="h-4 rounded bg-slate-200 w-32 animate-pulse" />
+    <div class="ml-3 grow">
+      <div class="h-4 w-32 animate-pulse rounded bg-slate-200" />
     </div>
   </div>
 </template>

@@ -50,7 +50,7 @@ useInfiniteScroll(
       </template>
 
       <button
-        class="block bg-white rounded w-full text-black py-1 font-semibold hover:bg-gray-200 mb-3"
+        class="mb-3 block w-full rounded bg-white py-1 font-semibold text-black hover:bg-gray-200"
         @click="() => fetchNextPage()"
       >
         Load More

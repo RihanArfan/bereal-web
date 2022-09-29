@@ -27,15 +27,15 @@ const { isLoading, isError, data: memories, error } = fetchFriendsFeed();
 
 <template>
   <div
-    class="h-48 bg-cover bg-center rounded-b-lg"
+    class="h-48 rounded-b-lg bg-cover bg-center"
     :class="{ 'bg-gray-400': !account?.profilePicture }"
     :style="{
       'background-image': `url(${account?.profilePicture?.url})`,
     }"
   >
-    <div class="backdrop-blur h-full rounded-b-lg"></div>
+    <div class="h-full rounded-b-lg backdrop-blur"></div>
   </div>
-  <div class="flex flex-col items-center relative -mt-24">
+  <div class="relative -mt-24 flex flex-col items-center">
     <UserIcon
       :profile-picture="account?.profilePicture"
       :username="account?.username ?? ' '"
@@ -47,7 +47,7 @@ const { isLoading, isError, data: memories, error } = fetchFriendsFeed();
       {{ account?.fullname }}
     </h1>
 
-    <div class="flex gap-1 text-zinc-600 font-semibold text-sm">
+    <div class="flex gap-1 text-sm font-semibold text-zinc-600">
       <a :href="`https://bere.al/${account?.username}`" target="_blank">
         @{{ account?.username }}
       </a>
@@ -58,10 +58,10 @@ const { isLoading, isError, data: memories, error } = fetchFriendsFeed();
     <p class="mt-1 mb-3">{{ account?.biography }}</p>
   </div>
 
-  <div class="bg-zinc-900 p-3 rounded-lg mb-3">
-    <div class="flex justify-between mb-1">
-      <h2 class="font-semibold text-lg mb-2">Memories</h2>
-      <p class="text-xs text-zinc-600 mt-1">Only visible to you</p>
+  <div class="mb-3 rounded-lg bg-zinc-900 p-3">
+    <div class="mb-1 flex justify-between">
+      <h2 class="mb-2 text-lg font-semibold">Memories</h2>
+      <p class="mt-1 text-xs text-zinc-600">Only visible to you</p>
     </div>
 
     <div class="grid grid-cols-7 gap-2">
@@ -89,10 +89,10 @@ const { isLoading, isError, data: memories, error } = fetchFriendsFeed();
     </div>
   </div>
 
-  <div class="bg-zinc-900 p-3 rounded-lg">
-    <div class="flex justify-between mb-1">
-      <h2 class="font-semibold text-lg mb-2">RealMojis</h2>
-      <p class="text-xs text-zinc-600 mt-1">Only visible to you</p>
+  <div class="rounded-lg bg-zinc-900 p-3">
+    <div class="mb-1 flex justify-between">
+      <h2 class="mb-2 text-lg font-semibold">RealMojis</h2>
+      <p class="mt-1 text-xs text-zinc-600">Only visible to you</p>
     </div>
 
     <div class="flex flex-wrap justify-center gap-2">

@@ -23,7 +23,7 @@ const sizeClass = computed(() => {
 
 <template>
   <div
-    class="rounded-full bg-slate-200 text-black font-bold items-center justify-center flex animate-pulse"
+    class="flex animate-pulse items-center justify-center rounded-full bg-slate-200 font-bold text-black"
     :class="sizeClass"
   />
 </template>

@@ -36,20 +36,20 @@ const humanLateTime = computed(() =>
       v-if="post.realMojis.length"
       :realmojis="post.realMojis"
       :size="8"
-      class="justify-center -mt-4 relative"
+      class="relative -mt-4 justify-center"
     />
 
     <div class="text-center">
       <p
         v-if="post.caption"
-        class="px-3 text-md font-medium"
+        class="text-md px-3 font-medium"
         :class="{ 'mt-1 ': !post.realMojis.length }"
       >
         {{ post.caption }}
       </p>
       <p
         v-if="post.lateInSeconds"
-        class="text-xs font-normal text-center text-gray-500"
+        class="text-center text-xs font-normal text-gray-500"
       >
         {{ humanLateTime }} late
       </p>

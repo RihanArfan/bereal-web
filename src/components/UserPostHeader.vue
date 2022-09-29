@@ -28,32 +28,32 @@ const humanLateTime = computed(() =>
 </script>
 
 <template>
-  <div class="flex items-center mb-2 px-3">
+  <div class="mb-2 flex items-center px-3">
     <UserIcon
       :profile-picture="post.user.profilePicture"
       :username="post.userName"
     />
 
-    <div class="grow ml-3">
+    <div class="ml-3 grow">
       <p class="text-md font-medium leading-tight">
         {{ post.user.username }}
       </p>
 
-      <p v-if="post.location" class="text-xs text-gray-500 truncate">
+      <p v-if="post.location" class="truncate text-xs text-gray-500">
         <span v-if="isLocationLoading">...</span>
         <template v-else>{{ location }}</template>
       </p>
     </div>
 
     <div
-      class="justify-self-end flex truncate text-sm font-medium ml-2 text-gray-300"
+      class="ml-2 flex justify-self-end truncate text-sm font-medium text-gray-300"
     >
       <p :class="{ 'hidden sm:inline-block': !!post.lateInSeconds }">
         {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
       </p>
 
       <p v-if="post.lateInSeconds" class="flex sm:font-light">
-        <span class="hidden sm:inline ml-1">(</span>
+        <span class="ml-1 hidden sm:inline">(</span>
         {{ humanLateTime }} late
         <span class="hidden sm:inline">)</span>
       </p>

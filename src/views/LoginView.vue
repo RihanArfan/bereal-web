@@ -21,15 +21,15 @@ const updateRefreshToken = async () => {
   <p class="mb-5">⚠️ The login system is being developed.</p>
 
   <h2 class="text-xl font-semibold">Developer Login</h2>
-  <label class="block my-1" for="token">Refresh token</label>
+  <label class="my-1 block" for="token">Refresh token</label>
   <input
     id="token"
     v-model="token"
-    class="border rounded w-full py-1 px-2 text-gray-700 mb-5 font-mono"
+    class="mb-5 w-full rounded border py-1 px-2 font-mono text-gray-700"
     aria-label="Refresh token input"
   />
   <button
-    class="bg-white hover:bg-gray-300 text-black font-bold py-2 px-4 rounded"
+    class="rounded bg-white py-2 px-4 font-bold text-black hover:bg-gray-300"
     type="button"
     @click="updateRefreshToken"
   >

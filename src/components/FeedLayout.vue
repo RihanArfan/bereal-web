@@ -15,7 +15,7 @@ window.addEventListener("scroll", () => {
 
 <template>
   <nav
-    class="fixed top-0 right-1/2 left-1/2 z-20 pt-11 flex justify-center gap-3 font-semibold text-md transition-opacity duration-300 text-gray-400"
+    class="text-md fixed top-0 right-1/2 left-1/2 z-20 flex justify-center gap-3 pt-11 font-semibold text-gray-400 transition-opacity duration-300"
     :class="{ 'opacity-0': !showNav, 'opacity-100': showNav }"
   >
     <RouterLink :to="{ name: 'friends-feed' }" exact-active-class="text-white">

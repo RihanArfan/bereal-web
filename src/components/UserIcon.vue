@@ -38,7 +38,7 @@ const sizeClass = computed(() => {
 
   <div
     v-else
-    class="rounded-full bg-gray-400 text-black font-bold items-center justify-center flex"
+    class="flex items-center justify-center rounded-full bg-gray-400 font-bold text-black"
     :class="sizeClass"
   >
     {{ username.charAt(0).toUpperCase() }}

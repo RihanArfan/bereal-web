@@ -29,7 +29,7 @@ defineProps<{ post: Post }>();
       </template>
     </PostPhotos>
 
-    <p v-if="post.caption" class="px-3 mt-1 text-md font-medium">
+    <p v-if="post.caption" class="text-md mt-1 px-3 font-medium">
       {{ post.caption }}
     </p>
   </div>

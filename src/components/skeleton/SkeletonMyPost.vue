@@ -7,15 +7,15 @@ defineProps<{ small?: boolean }>();
     <div class="relative animate-pulse">
       <img
         :class="{ 'w-2/5': small }"
-        class="rounded-xl bg-slate-200 mx-auto"
+        class="mx-auto rounded-xl bg-slate-200"
         :width="1500"
         :height="2000"
         alt=""
       />
     </div>
 
-    <div class="flex justify-center mt-2">
-      <div class="h-3 rounded bg-slate-200 w-32 animate-pulse" />
+    <div class="mt-2 flex justify-center">
+      <div class="h-3 w-32 animate-pulse rounded bg-slate-200" />
     </div>
   </div>
 </template>
