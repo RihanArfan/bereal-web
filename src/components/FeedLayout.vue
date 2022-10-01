@@ -34,7 +34,5 @@ window.addEventListener("scroll", () => {
     </RouterLink>
   </nav>
 
-  <main class="mt-8">
-    <RouterView />
-  </main>
+  <RouterView />
 </template>
