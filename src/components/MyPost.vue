@@ -48,10 +48,13 @@ const humanLateTime = computed(() =>
         {{ post.caption }}
       </p>
       <p
-        v-if="post.lateInSeconds"
         class="text-center text-xs font-normal text-gray-500"
+        :class="{ 'mt-1 ': !post.realMojis.length && !post.caption }"
       >
-        {{ humanLateTime }} late
+        <template v-if="post.lateInSeconds">{{ humanLateTime }} late</template>
+        <template v-else>
+          {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
+        </template>
       </p>
     </div>
   </div>
