@@ -17,7 +17,7 @@ const share = () => {
 </script>
 <template>
   <div
-    class="mb-3 flex cursor-pointer items-center rounded-lg bg-zinc-900 p-4 transition-colors hover:bg-zinc-800"
+    class="mb-5 flex cursor-pointer items-center rounded-lg bg-zinc-900 p-4 transition-colors hover:bg-zinc-800"
     @click="share()"
   >
     <UserIcon
