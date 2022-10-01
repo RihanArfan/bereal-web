@@ -20,7 +20,7 @@ const sizeClass = computed(() => {
 </script>
 
 <template>
-  <div class="flex w-11/12 w-11/12">
+  <div class="flex w-11/12">
     <Popper
       v-for="(realmoji, index) in firstSixRealmojis"
       :key="realmoji.id"
