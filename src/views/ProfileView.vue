@@ -37,11 +37,11 @@ const { account } = storeToRefs(accountStore);
       <a :href="`https://bere.al/${account?.username}`" target="_blank">
         @{{ account?.username }}
       </a>
-      <p v-if="account?.location">• {{ account?.location }}</p>
       <p>• Joined {{ dayjs(account?.createdAt).fromNow() }}</p>
     </div>
+    <p class="text-sm font-semibold text-zinc-600">{{ account?.location }}</p>
 
-    <p class="mt-1 mb-3">{{ account?.biography }}</p>
+    <p class="mt-1 mb-5">{{ account?.biography }}</p>
   </div>
 
   <template v-if="account?.username === $route.params.id">
