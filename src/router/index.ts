@@ -10,13 +10,12 @@ const router = createRouter({
       component: () => import("@/views/LoginView.vue"),
     },
     {
-      path: "/me",
+      path: "/@:id(.*)",
       name: "profile",
-      component: () => import("@/views/MyProfileView.vue"),
+      component: () => import("@/views/ProfileView.vue"),
     },
     {
       path: "",
-      name: "feeds",
       component: () => import("@/components/FeedLayout.vue"),
       children: [
         {

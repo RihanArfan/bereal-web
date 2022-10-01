@@ -32,7 +32,9 @@ const { account } = storeToRefs(accountStore);
         />
       </RouterLink>
 
-      <RouterLink :to="{ name: 'profile' }">
+      <RouterLink
+        :to="{ name: 'profile', params: { id: account?.username ?? 'meee' } }"
+      >
         <UserIcon
           :profile-picture="account?.profilePicture"
           :username="account?.username ?? ''"
