@@ -30,6 +30,27 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: "/friends",
+      component: () => import("@/components/FriendLayout.vue"),
+      children: [
+        {
+          path: "",
+          name: "friends",
+          component: () => import("@/views/FriendListView.vue"),
+        },
+        {
+          path: "suggestions",
+          name: "friend-suggestions",
+          component: () => import("@/views/FriendSuggestionsView.vue"),
+        },
+        {
+          path: "requests",
+          name: "friend-requests",
+          component: () => import("@/views/FriendRequestsView.vue"),
+        },
+      ],
+    },
   ],
 });
 

@@ -126,3 +126,11 @@ export interface Memory {
   isLate: boolean;
   memoryDay: string;
 }
+
+export interface Friend {
+  id: string;
+  username: string;
+  fullname: string;
+  profilePicture: Picture;
+  status: string;
+}

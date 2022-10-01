@@ -7,7 +7,7 @@ const { account } = storeToRefs(accountStore);
 </script>
 <template>
   <header
-    class="fixed left-0 right-0 top-0 z-10 mx-auto w-full max-w-lg bg-gradient-to-b from-black to-transparent pb-3"
+    class="fixed left-0 right-0 top-0 z-10 mx-auto w-full max-w-lg bg-gradient-to-b from-black to-transparent"
   >
     <nav
       class="align-center top-0 z-50 flex items-center justify-between px-4 pt-2"
@@ -19,7 +19,7 @@ const { account } = storeToRefs(accountStore);
       >
         <BackIcon class="hover:fill-gray-200" />
       </button>
-      <RouterLink v-else to="/" class="h-6 w-6 pt-1">
+      <RouterLink v-else :to="{ name: 'friends' }" class="h-6 w-6 pt-1">
         <AccountIcon class="hover:fill-gray-200" />
       </RouterLink>
 
