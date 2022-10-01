@@ -13,7 +13,9 @@ const { account } = storeToRefs(accountStore);
       class="align-center top-0 z-50 flex items-center justify-between px-4 pt-2"
     >
       <button
-        v-if="$route.name === 'profile'"
+        v-if="
+          $route.name !== 'friends-feed' && $route.name !== 'discovery-feed'
+        "
         class="h-6 w-6 cursor-pointer"
         @click="$router.back()"
       >
