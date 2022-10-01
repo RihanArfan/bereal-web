@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import type { ProfilePicture } from "@/types/types";
+import type { Picture } from "@/types/types";
 
 const props = defineProps<{
-  profilePicture?: ProfilePicture;
+  profilePicture?: Picture;
   username: string;
-  size?: 8 | 10 | 16 | 20 | 24 | 32;
+  size?: 8 | 10 | 12 | 14 | 16 | 20 | 24 | 32;
 }>();
 
 const sizeClass = computed(() => {
   switch (props.size) {
     case 8:
       return "w-8 h-8";
+    case 12:
+      return "w-12 h-12";
+    case 14:
+      return "w-14 h-14";
     case 16:
       return "w-16 h-16";
     case 20:
