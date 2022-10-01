@@ -15,7 +15,7 @@ window.addEventListener("scroll", () => {
 
 <template>
   <nav
-    class="text-md fixed top-0 right-1/2 left-1/2 z-20 flex justify-center gap-3 pt-11 font-semibold text-gray-400 transition-opacity duration-300"
+    class="fixed bottom-0 right-1/2 left-1/2 z-20 mb-5 flex justify-center gap-3 text-lg font-semibold text-zinc-400 transition-opacity duration-300"
     :class="{ 'opacity-0': !showNav, 'opacity-100': showNav }"
   >
     <RouterLink
@@ -34,7 +34,7 @@ window.addEventListener("scroll", () => {
     </RouterLink>
   </nav>
 
-  <main class="mt-20">
+  <main class="mt-8">
     <RouterView />
   </main>
 </template>
