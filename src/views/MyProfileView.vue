@@ -16,13 +16,13 @@ const { account } = storeToRefs(accountStore);
 const memoriesFetcher = async () =>
   await useApi().get("feeds/memories?limit=14").json<Memories>();
 
-const fetchFriendsFeed = () =>
+const fetchMemoriesFeed = () =>
   useQuery(["memories"], memoriesFetcher, {
     refetchOnWindowFocus: false,
     staleTime: 24 * 60 * 60 * 1000, // 24 hours
     cacheTime: 24 * 60 * 60 * 1000, // 24 hours
   });
-const { isLoading, isError, data: memories, error } = fetchFriendsFeed();
+const { isLoading, isError, data: memories, error } = fetchMemoriesFeed();
 </script>
 
 <template>
@@ -77,8 +77,6 @@ const { isLoading, isError, data: memories, error } = fetchFriendsFeed();
           :height="memory.thumbnail.height"
           class="rounded-lg"
         />
-
-        <!-- put memoryDay in center in front of memory-->
 
         <div class="absolute inset-0 flex items-center justify-center">
           <p class="text-2xl font-bold text-white">
