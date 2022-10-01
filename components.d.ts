@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     AccountIcon: typeof import('./src/components/icons/AccountIcon.vue')['default']
     BackIcon: typeof import('./src/components/icons/BackIcon.vue')['default']
     FeedLayout: typeof import('./src/components/FeedLayout.vue')['default']
+    MyMemories: typeof import('./src/components/MyMemories.vue')['default']
     MyPost: typeof import('./src/components/MyPost.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     PostPhotos: typeof import('./src/components/PostPhotos.vue')['default']

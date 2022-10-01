@@ -2,27 +2,13 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { storeToRefs } from "pinia";
-import { useQuery } from "vue-query";
 
 import { useAccountStore } from "@/stores/account";
-import { useApi } from "@/composables/useApi";
-import type { Memories } from "@/types/types";
 
 dayjs.extend(relativeTime);
 
 const accountStore = useAccountStore();
 const { account } = storeToRefs(accountStore);
-
-const memoriesFetcher = async () =>
-  await useApi().get("feeds/memories?limit=14").json<Memories>();
-
-const fetchMemoriesFeed = () =>
-  useQuery(["memories"], memoriesFetcher, {
-    refetchOnWindowFocus: false,
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours
-    cacheTime: 24 * 60 * 60 * 1000, // 24 hours
-  });
-const { isLoading, isError, data: memories, error } = fetchMemoriesFeed();
 </script>
 
 <template>
@@ -64,27 +50,7 @@ const { isLoading, isError, data: memories, error } = fetchMemoriesFeed();
       <p class="mt-1 text-xs text-zinc-600">Only visible to you</p>
     </div>
 
-    <div class="grid grid-cols-7 gap-2">
-      <div
-        v-for="memory in memories?.data.slice().reverse()"
-        :key="memory.id"
-        class="relative"
-      >
-        <img
-          :src="memory.thumbnail.url"
-          :alt="`Memory ${memory.memoryDay}`"
-          :width="memory.thumbnail.width"
-          :height="memory.thumbnail.height"
-          class="rounded-lg"
-        />
-
-        <div class="absolute inset-0 flex items-center justify-center">
-          <p class="text-2xl font-bold text-white">
-            {{ memory.memoryDay.split("-")[2] }}
-          </p>
-        </div>
-      </div>
-    </div>
+    <MyMemories />
   </div>
 
   <div class="rounded-lg bg-zinc-900 p-3">
