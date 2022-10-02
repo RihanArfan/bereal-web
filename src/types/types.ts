@@ -3,16 +3,16 @@ export interface Date {
   _nanoseconds: number;
 }
 
-export interface User {
-  id: string;
-  username: string;
-  profilePicture?: Picture;
-}
-
 export interface Picture {
   height: number;
   width: number;
   url: string;
+}
+
+export interface User {
+  id: string;
+  username: string;
+  profilePicture?: Picture;
 }
 
 export interface Friend extends User {
@@ -127,10 +127,26 @@ export interface Memory {
   memoryDay: string;
 }
 
-export interface Friend {
+export interface Profile {
   id: string;
   username: string;
   fullname: string;
-  profilePicture: Picture;
-  status: string;
+  biography?: string;
+  location?: string;
+  profilePicture?: Picture;
+  relationship: {
+    status: string;
+    commonFriends: CommonFriends;
+    friendedAt: string;
+  };
+  createdAt: string;
+}
+
+export interface CommonFriends {
+  sample: CommonFriend[];
+  total: number;
+}
+
+export interface CommonFriend extends User {
+  fullname: string;
 }
