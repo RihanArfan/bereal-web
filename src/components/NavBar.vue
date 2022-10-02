@@ -35,7 +35,8 @@ const { account } = storeToRefs(accountStore);
       </RouterLink>
 
       <RouterLink
-        :to="{ name: 'profile', params: { id: account?.username ?? 'meee' } }"
+        v-if="account"
+        :to="{ name: 'profile', params: { username: account?.username } }"
       >
         <UserIcon
           :profile-picture="account?.profilePicture"
@@ -43,6 +44,8 @@ const { account } = storeToRefs(accountStore);
           :size="8"
         />
       </RouterLink>
+
+      <UserIcon v-else username=" " :size="8" />
     </nav>
   </header>
 </template>

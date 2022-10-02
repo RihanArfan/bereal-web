@@ -25,7 +25,10 @@ const { isLoading, isError, data, error } = fetchFriendsList();
     <router-link
       v-for="friend in data.data"
       :key="friend.id"
-      :to="{ name: 'profile', params: { id: friend.username } }"
+      :to="{
+        name: 'profile',
+        params: { username: friend.username },
+      }"
       class="flex items-center rounded-lg py-2 transition-all hover:bg-zinc-900 hover:px-2"
     >
       <UserIcon
