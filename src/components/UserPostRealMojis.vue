@@ -47,12 +47,13 @@ const sizeClass = computed(() => {
             class="rounded-lg"
           />
 
-          <div
+          <RouterLink
+            :to="{ name: 'profile', params: { username: realmoji.userName } }"
             class="absolute bottom-0 left-0 mb-2 ml-2 rounded-full bg-zinc-100 px-1 text-center text-sm font-thin text-black"
           >
             {{ realmoji.emoji }}
             @<span class="font-medium">{{ realmoji.userName }}</span>
-          </div>
+          </RouterLink>
         </div>
       </template>
     </Popper>
