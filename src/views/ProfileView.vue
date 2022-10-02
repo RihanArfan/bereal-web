@@ -65,7 +65,7 @@ const profile = computed(() => {
     />
 
     <h1 class="text-2xl font-semibold">
-      <template v-if="isLoading">Loading...</template>
+      <template v-if="isLoading && !isMyProfile">Loading...</template>
       <template v-else-if="isError">Profile Not Found</template>
       <template v-else>{{ profile?.fullname }}</template>
     </h1>
