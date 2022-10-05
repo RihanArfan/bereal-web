@@ -31,6 +31,11 @@ const router = createRouter({
       ],
     },
     {
+      name: "caption",
+      path: "/me/caption",
+      component: () => import("@/views/MyPostCaptionView.vue"),
+    },
+    {
       path: "/friends",
       component: () => import("@/components/FriendLayout.vue"),
       children: [
