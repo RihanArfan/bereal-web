@@ -28,9 +28,9 @@ const humanLateTime = computed(() =>
 </script>
 
 <template>
-  <div class="mb-1 flex items-center pr-3">
+  <div class="mb-1 flex items-center pr-3 pl-1">
     <RouterLink
-      class="flex items-center rounded-lg py-1 px-3 transition-colors hover:bg-zinc-900"
+      class="flex items-center rounded-lg py-1 px-2 transition-colors duration-200 hover:bg-zinc-900"
       :to="{ name: 'profile', params: { username: post.userName } }"
     >
       <UserIcon
