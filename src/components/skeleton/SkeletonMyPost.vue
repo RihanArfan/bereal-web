@@ -14,8 +14,9 @@ defineProps<{ small?: boolean }>();
       />
     </div>
 
-    <div class="mt-2 flex justify-center">
-      <div class="h-3 w-32 animate-pulse rounded bg-slate-200" />
+    <div class="mt-2.5 flex flex-col items-center">
+      <div class="h-4 w-32 animate-pulse rounded bg-slate-200" />
+      <div class="mt-2 h-2.5 w-40 animate-pulse rounded bg-slate-200" />
     </div>
   </div>
 </template>
