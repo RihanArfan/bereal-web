@@ -3,11 +3,23 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
 
+import { useLocationQuery } from "@/composables/queries";
 import type { Post } from "@/types/types";
+
 const props = defineProps<{ post: Post; small?: boolean }>();
 
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
+
+const { isLoading: isLocationLoading, data } = useLocationQuery(
+  props.post.location?._latitude || 0,
+  props.post.location?._longitude || 0,
+  { enabled: !!props.post.location }
+);
+
+const location = computed(
+  () => data.value?.resourceSets[0].resources[0]?.address.countryRegion
+);
 
 const humanLateTime = computed(() =>
   dayjs.duration(props.post.lateInSeconds, "s").humanize()
@@ -41,16 +53,17 @@ const humanLateTime = computed(() =>
 
     <div class="text-center">
       <p
-        v-if="post.caption"
         class="text-md px-3 font-medium"
-        :class="{ 'mt-1 ': !post.realMojis.length }"
+        :class="{ 'mt-1': !post.realMojis.length }"
       >
         {{ post.caption }}
+        <template v-if="!post.caption">Add a caption...</template>
       </p>
-      <p
-        class="text-center text-xs font-normal text-gray-500"
-        :class="{ 'mt-1 ': !post.realMojis.length && !post.caption }"
-      >
+      <p class="text-center text-xs font-normal text-gray-500">
+        <template v-if="post.location && !isLocationLoading">
+          {{ location }} •
+        </template>
+
         <template v-if="post.lateInSeconds">{{ humanLateTime }} late</template>
         <template v-else>
           {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
