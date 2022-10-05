@@ -6,7 +6,12 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { useLocationQuery } from "@/composables/queries";
 import type { Post } from "@/types/types";
 
-const props = defineProps<{ post: Post; small?: boolean }>();
+const props = defineProps<{
+  post: Post;
+  small?: boolean;
+  hideRealmojis?: boolean;
+  hideDetails?: boolean;
+}>();
 
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
@@ -45,20 +50,21 @@ const humanLateTime = computed(() =>
     />
 
     <UserPostRealMojis
-      v-if="post.realMojis.length"
+      v-if="post.realMojis.length && !hideRealmojis"
       :realmojis="post.realMojis"
       :size="8"
       class="relative -mt-4 justify-center"
     />
 
-    <div class="text-center">
-      <p
-        class="text-md px-3 font-medium"
+    <div v-if="!hideDetails" class="text-center">
+      <RouterLink
+        :to="{ name: 'caption' }"
+        class="text-md block cursor-pointer px-3 font-medium"
         :class="{ 'mt-1': !post.realMojis.length }"
       >
         {{ post.caption }}
         <template v-if="!post.caption">Add a caption...</template>
-      </p>
+      </RouterLink>
       <p class="text-center text-xs font-normal text-gray-500">
         <template v-if="post.location && !isLocationLoading">
           {{ location }} •
