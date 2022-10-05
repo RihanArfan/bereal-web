@@ -22,10 +22,10 @@ const { isError, data: incoming, error } = fetchIncomingFriendsList();
   <span v-if="isError">Error: {{ error }}</span>
 
   <template v-if="incoming?.data.length">
-    <router-link
+    <RouterLink
       v-for="friend in incoming.data"
       :key="friend.id"
-      :to="{ name: 'profile', params: { id: friend.username } }"
+      :to="{ name: 'profile', params: { username: friend.username } }"
       class="flex items-center rounded-lg py-2 transition-all hover:bg-zinc-900 hover:px-2"
     >
       <UserIcon
@@ -39,7 +39,7 @@ const { isError, data: incoming, error } = fetchIncomingFriendsList();
           @{{ friend.username }}
         </p>
       </div>
-    </router-link>
+    </RouterLink>
   </template>
 
   <div v-else class="mt-2 rounded-lg bg-zinc-900 px-3 py-5 text-center">
