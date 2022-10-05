@@ -1,9 +1,19 @@
-import { useQuery } from "vue-query";
 import ky from "ky";
-
+import { useQuery } from "vue-query";
 import type { MaybeRef } from "@vueuse/core";
 
+import { useApi } from "@/composables/useApi";
 import type { ReverseGeolocationResponse } from "@/types/geolocation";
+import type { Post } from "@/types/types";
+
+export function useFriendsFeedQuery() {
+  const fetcher = async (): Promise<Post[]> =>
+    await useApi().get("feeds/friends").json<Post[]>();
+
+  return useQuery(["friends-feed"], fetcher, {
+    cacheTime: 1000 * 60 * 60 * 24, // 24 hours
+  });
+}
 
 export function useLocationQuery(
   latitude: number,
