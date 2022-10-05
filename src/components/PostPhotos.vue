@@ -36,7 +36,7 @@ const alt = (primary: boolean) =>
     />
 
     <img
-      class="absolute top-0 left-0 mt-3 ml-3 w-1/4 cursor-pointer rounded-xl border-2 border-black bg-zinc-800"
+      class="absolute top-0 left-0 mt-3 ml-3 w-1/4 cursor-pointer rounded-xl border-2 border-black bg-zinc-800 transition-all hover:opacity-90"
       :src="imageUrl(isSecondaryLarge)"
       :alt="alt(isSecondaryLarge)"
       loading="lazy"
