@@ -1,3 +1,4 @@
+import { useAccountStore } from "@/stores/account";
 import { useAuthStore } from "@/stores/auth";
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -13,6 +14,11 @@ const router = createRouter({
       path: "/@:username(.*)",
       name: "profile",
       component: () => import("@/views/ProfileView.vue"),
+    },
+    {
+      path: "/me",
+      name: "my-profile",
+      component: () => import("@/views/MyProfileView.vue"),
     },
     {
       path: "",
@@ -60,10 +66,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  if (to.name === "login") return true;
-
+  // auth
   const { isLoggedIn } = useAuthStore();
+  if (!isLoggedIn && to.name === "login") return true;
   if (!isLoggedIn) return { name: "login" };
+
+  // my-profile redirect
+  if (to.name === "profile") {
+    const accountStore = useAccountStore();
+    if (to.params.username === accountStore.account?.username)
+      return { name: "my-profile" };
+  }
 });
 
 export default router;
