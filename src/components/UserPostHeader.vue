@@ -3,10 +3,9 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import type { Post } from "@/types/types";
-import { useLocationQuery } from "@/composables/queries";
+import type { DiscoveryPost } from "@/types/posts";
 
-const props = defineProps<{ post: Post }>();
+const props = defineProps<{ post: DiscoveryPost }>();
 
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
@@ -31,11 +30,11 @@ const humanLateTime = computed(() =>
   <div class="mb-1 flex items-center pr-3 pl-1">
     <RouterLink
       class="flex items-center rounded-lg py-1 px-2 transition-colors duration-200 hover:bg-zinc-900"
-      :to="{ name: 'profile', params: { username: post.userName } }"
+      :to="{ name: 'profile', params: { username: post.user.username } }"
     >
       <UserIcon
         :profile-picture="post.user.profilePicture"
-        :username="post.userName"
+        :username="post.user.username"
         class="mr-3"
       />
 
