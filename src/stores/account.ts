@@ -2,7 +2,7 @@ import { ref } from "vue";
 import { defineStore } from "pinia";
 
 import { useApi } from "@/composables/useApi";
-import type { Account } from "@/types/types";
+import type { Account } from "@/types/users";
 
 export const useAccountStore = defineStore("account", () => {
   const account = ref<Account>();
