@@ -22,7 +22,7 @@ export default defineConfig({
         /\.vue\?vue/,
       ],
       imports: ["vue", "vue-router"],
-      dirs: ["./src/composables"],
+      dirs: ["./src/composables", "./src/stores"],
       dts: true,
     }),
     VitePWA({
