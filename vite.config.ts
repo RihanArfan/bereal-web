@@ -16,9 +16,14 @@ export default defineConfig({
     vue(),
     Components({}),
     AutoImport({
-      include: [/\.vue$/, /\.vue\?vue/],
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/,
+      ],
       imports: ["vue", "vue-router"],
-      dirs: ["./composables/**", "./components/**"],
+      dirs: ["./src/composables"],
+      dts: true,
     }),
     VitePWA({
       registerType: "autoUpdate",
