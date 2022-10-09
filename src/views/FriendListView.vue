@@ -1,14 +1,5 @@
 <script setup lang="ts">
-import { useQuery } from "vue-query";
-
-import { useApi } from "@/composables/useApi";
-import type { Friend } from "@/types/types";
-
-const friendsListFetcher = async () =>
-  await useApi().get("relationships/friends").json<{ data: Friend[] }>();
-
-const fetchFriendsList = () => useQuery(["friends"], friendsListFetcher);
-const { isLoading, isError, data, error } = fetchFriendsList();
+const { isLoading, isError, data, error } = useFriendsQuery();
 </script>
 
 <template>
@@ -22,7 +13,7 @@ const { isLoading, isError, data, error } = fetchFriendsList();
   <span v-else-if="isError">Error: {{ error }}</span>
 
   <template v-if="data">
-    <router-link
+    <RouterLink
       v-for="friend in data.data"
       :key="friend.id"
       :to="{
@@ -42,6 +33,6 @@ const { isLoading, isError, data, error } = fetchFriendsList();
           @{{ friend.username }}
         </p>
       </div>
-    </router-link>
+    </RouterLink>
   </template>
 </template>

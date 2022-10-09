@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
-import { useFriendsFeedQuery } from "@/composables/queries";
 
 const authStore = useAuthStore();
 const { isLoading, isError, data, error } = useFriendsFeedQuery();
