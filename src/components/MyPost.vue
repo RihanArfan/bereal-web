@@ -3,11 +3,10 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import { useLocationQuery } from "@/composables/queries";
-import type { Post } from "@/types/types";
+import type { DiscoveryPost } from "@/types/posts";
 
 const props = defineProps<{
-  post: Post;
+  post: DiscoveryPost;
   small?: boolean;
   hideRealmojis?: boolean;
   hideDetails?: boolean;
