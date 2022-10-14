@@ -1,6 +1,6 @@
 import ky from "ky";
-import { useQuery } from "vue-query";
-import type { MaybeRef } from "@vueuse/core";
+import { useQuery } from "@tanstack/vue-query";
+import type { MaybeRef } from "@tanstack/vue-query/build/lib/types";
 
 import type { ReverseGeolocationResponse } from "@/types/geolocation";
 
