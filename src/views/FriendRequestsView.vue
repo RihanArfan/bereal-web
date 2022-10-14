@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useQuery } from "vue-query";
+import { useQuery } from "@tanstack/vue-query";
 
 import { useApi } from "@/composables/useApi";
-import type { Friend } from "@/types/types";
+import type { Friend } from "@/types/users";
 
 const incomingFriendListFetcher = async () =>
   await useApi()
