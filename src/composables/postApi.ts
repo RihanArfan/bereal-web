@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/vue-query";
+import type { MaybeRef } from "@tanstack/vue-query/build/lib/types";
 import { useApi } from "@/composables/useApi";
 import type { DiscoveryPost, Post } from "@/types/posts";
 
@@ -14,6 +15,18 @@ export const usePostQuery = (id: string) => {
     await useApi().get(`content/posts/${id}`).json<Post>();
 
   return useQuery(["post", id], fetcher);
+};
+
+export const useRealmojiQuery = (
+  id: string,
+  { enabled }: { enabled: MaybeRef<boolean | undefined> }
+) => {
+  const fetcher = async () =>
+    await useApi()
+      .get("content/realmojis", { searchParams: { postId: id } })
+      .json<Post>();
+
+  return useQuery(["post", id], fetcher, { enabled });
 };
 
 export const useUpdateCaptionMutation = () => {

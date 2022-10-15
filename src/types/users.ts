@@ -70,24 +70,3 @@ export interface BlockedUser {
   blockedAt: Date;
   user: Omit<Friend, "status">;
 }
-
-export interface MyProfile {
-  id: string;
-  username: string;
-  birthdate: string;
-  fullname: string;
-  profilePicture: Picture;
-  realmojis: Realmoji[];
-  devices: Device[];
-  stats: {
-    postTotal: number;
-  };
-  canDeletePost: boolean;
-  canUpdateRegion: boolean;
-  phoneNumber: string;
-  biography: string;
-  location: string;
-  countryCode: string;
-  region: string;
-  createdAt: string;
-}
