@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import { VueQueryPlugin } from "vue-query";
+import { QueryClient, VueQueryPlugin } from "@tanstack/vue-query";
 
 import { registerSW } from "virtual:pwa-register";
 
@@ -18,6 +18,14 @@ app.use(router);
 app.use(VueQueryPlugin);
 
 app.mount("#app");
+
+new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 1000 * 60 * 60 * 24, // 24 hours
+    },
+  },
+});
 
 const accountStore = useAccountStore();
 accountStore.fetchAccount();
