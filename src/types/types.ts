@@ -14,16 +14,6 @@ export interface Location {
   _longitude: number;
 }
 
-export interface TokenResponse {
-  access_token: string;
-  refresh_token: string;
-  expires_in: number;
-  token_type: string;
-  id_token: string;
-  user_id: string;
-  project_id: string;
-}
-
 export interface Device {
   clientVersion: string;
   device: string;

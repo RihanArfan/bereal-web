@@ -1,6 +1,4 @@
-type Env = {
-  GOOGLE_SECRET: string;
-};
+type Env = { GOOGLE_SECRET: string };
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const body = await request.json<{ refresh_token: string }>();
