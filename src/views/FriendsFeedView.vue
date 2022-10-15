@@ -14,7 +14,7 @@ const othersPosts = computed(() =>
 
 <template>
   <template v-if="isLoading">
-    <SkeletonMyPost :small="true" class="mb-5" />
+    <SkeletonMyPost :small="true" class="mb-9" />
     <SkeletonUserPost v-for="x in 3" :key="x" class="mb-5" />
   </template>
 
