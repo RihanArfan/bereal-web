@@ -1,41 +1,31 @@
 <script setup lang="ts">
-import { useApiFunction } from "@/composables/useApi";
-import { useFriendsFeedQuery } from "@/composables/queries";
-import { useAuthStore } from "@/stores/auth";
+const { isLoading, isError, data, error } = usePostQuery("me");
 
-const authStore = useAuthStore();
-const { isLoading, isError, data, error } = useFriendsFeedQuery();
+const caption = ref<string>("");
+watch(data, (newVal) => (caption.value = newVal?.caption ?? ""));
+watch(caption, async (newVal) => mutate(newVal));
 
-const myPost = computed(() =>
-  data.value?.find(({ user }) => user.id === authStore.userId)
-);
-
-const caption = ref<string>();
-watch(myPost, (newVal) => (caption.value = newVal?.caption));
-watch(caption, async (newVal) => {
-  // TODO: change to vue-query mutation
-  await useApiFunction()
-    .post("setCaptionPost", {
-      json: { data: { caption: newVal } },
-    })
-    .json<{ result: { caption: string } }>();
-});
+const {
+  isLoading: isUpdateLoading,
+  isError: isUpdateError,
+  error: updateError,
+  mutate,
+} = useUpdateCaptionMutation();
 </script>
 
 <template>
   <SkeletonMyPost v-if="isLoading" :hide-details="true" class="mt-12 w-2/3" />
 
   <span v-else-if="isError">Error: {{ error }}</span>
-  <p v-else-if="!myPost">Post a BeReal to add a caption</p>
+  <p v-else-if="!data">Post a BeReal to add a caption</p>
 
   <MyPost
-    v-if="myPost"
-    :post="myPost"
+    v-if="data"
+    :post="data"
     :hide-realmojis="true"
     :hide-details="true"
     class="mx-auto mt-16 w-2/3"
   />
-  {{ caption }}
 
   <div
     class="container fixed bottom-0 right-0 left-0 mx-auto max-w-lg sm:mb-10"
