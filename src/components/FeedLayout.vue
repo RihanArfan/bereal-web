@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useIsNavSpacing } from "@/composables/useIsNavSpacing";
-
 const showNav = ref(true);
 const lastScrollTop = ref(0);
 
@@ -17,11 +15,10 @@ window.addEventListener("scroll", () => {
 
 <template>
   <nav
-    class="text-md fixed top-0 right-1/2 left-1/2 z-20 mt-12 flex justify-center gap-5 font-semibold text-zinc-400 transition-opacity duration-300"
+    class="text-md fixed top-0 right-1/2 left-1/2 z-20 mt-12 flex justify-center gap-5 pt-3 font-semibold text-zinc-400 transition-opacity duration-300 sm:pt-0"
     :class="{
       'opacity-0': !showNav,
       'opacity-100': showNav,
-      'pt-5': useIsNavSpacing,
     }"
   >
     <RouterLink

@@ -41,7 +41,7 @@ export default defineConfig({
           "Everyday at a different time, everyone is notified simultaneously to capture and share a photo in 2 minutes",
         theme_color: "#000000",
         background_color: "#000000",
-        display: "fullscreen",
+        display: "standalone",
         orientation: "portrait",
         icons: [
           {
