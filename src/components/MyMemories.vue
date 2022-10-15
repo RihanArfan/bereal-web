@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { useQuery } from "vue-query";
+import { useQuery } from "@tanstack/vue-query";
 
 import { useApi } from "@/composables/useApi";
-import type { Memories } from "@/types/types";
+import type { Results } from "@/types/types";
+import type { Memory } from "@/types/memories";
 
 const memoriesFetcher = async () =>
-  await useApi().get("feeds/memories?limit=14").json<Memories>();
+  await useApi().get("feeds/memories?limit=14").json<Results<Memory>>();
 
 const fetchMemoriesFeed = () =>
   useQuery(["memories"], memoriesFetcher, {
@@ -24,10 +25,10 @@ const { isLoading, isError, data: memories, error } = fetchMemoriesFeed();
       class="relative"
     >
       <img
-        :src="memory.thumbnail.url"
+        :src="memory.thumbnail?.url"
         :alt="`Memory ${memory.memoryDay}`"
-        :width="memory.thumbnail.width"
-        :height="memory.thumbnail.height"
+        :width="memory.thumbnail?.width"
+        :height="memory.thumbnail?.height"
         class="rounded-lg"
       />
 
