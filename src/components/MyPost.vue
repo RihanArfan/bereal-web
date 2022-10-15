@@ -4,6 +4,7 @@ import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 import type { DiscoveryPost } from "@/types/posts";
+import { useLocationQuery } from "@/composables/locationApi";
 
 const props = defineProps<{
   post: DiscoveryPost;
