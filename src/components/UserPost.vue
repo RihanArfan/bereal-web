@@ -24,6 +24,8 @@ defineProps<{ post: DiscoveryPost }>();
       <template #footer>
         <UserPostRealMojis
           :realmojis="post.realMojis"
+          :limit="6"
+          :total="post.realMojis.length"
           class="absolute bottom-0 left-0 ml-3 mb-3"
         />
       </template>

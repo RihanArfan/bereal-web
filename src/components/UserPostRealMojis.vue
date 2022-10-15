@@ -4,17 +4,19 @@ import type { DiscoveryRealmoji } from "@/types/realmojis";
 
 const props = defineProps<{
   realmojis: DiscoveryRealmoji[];
-  size?: 8 | 12;
-  limit?: number;
+  size?: 8 | 12 | 16;
+  limit: number;
   total?: number;
 }>();
 
-const firstSixRealmojis = computed(() => props.realmojis.slice(0, 6));
+const realmojisInLimit = computed(() => props.realmojis.slice(0, props.limit));
 
 const sizeClass = computed(() => {
   switch (props.size) {
     case 8:
       return "w-8 h-8";
+    case 16:
+      return "w-16 h-16";
     default:
       return "w-12 h-12";
   }
@@ -24,7 +26,7 @@ const sizeClass = computed(() => {
 <template>
   <div class="flex w-[calc(100%_-_theme('gap.2'))]">
     <Popper
-      v-for="(realmoji, index) in firstSixRealmojis"
+      v-for="(realmoji, index) in realmojisInLimit"
       :key="realmoji.id"
       :class="{ '!-ml-2': index !== 0 }"
       :hover="true"
@@ -64,19 +66,11 @@ const sizeClass = computed(() => {
     </Popper>
 
     <div
-      v-if="limit && total"
+      v-if="total && total > limit"
       class="-ml-2 flex items-center justify-center rounded-full border border-black bg-zinc-300 text-center font-bold text-black"
       :class="sizeClass"
     >
-      +{{ total - realmojis.length }}
-    </div>
-
-    <div
-      v-else-if="realmojis.length > 6"
-      class="-ml-2 flex items-center justify-center rounded-full border border-black bg-zinc-300 text-center font-bold text-black"
-      :class="sizeClass"
-    >
-      +{{ realmojis.length - 6 }}
+      +{{ total - realmojisInLimit.length }}
     </div>
   </div>
 </template>
