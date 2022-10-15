@@ -58,6 +58,7 @@ declare global {
   const useMyProfileQuery: typeof import('./src/composables/myProfileApi')['useMyProfileQuery']
   const usePostQuery: typeof import('./src/composables/postApi')['usePostQuery']
   const useProfileQuery: typeof import('./src/composables/userProfileApi')['useProfileQuery']
+  const useRealmojiQuery: typeof import('./src/composables/postApi')['useRealmojiQuery']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSearchProfileQuery: typeof import('./src/composables/userProfileApi')['useSearchProfileQuery']

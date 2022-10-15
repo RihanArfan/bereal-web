@@ -5,6 +5,8 @@ import type { DiscoveryRealmoji } from "@/types/realmojis";
 const props = defineProps<{
   realmojis: DiscoveryRealmoji[];
   size?: 8 | 12;
+  limit?: number;
+  total?: number;
 }>();
 
 const firstSixRealmojis = computed(() => props.realmojis.slice(0, 6));
@@ -31,8 +33,8 @@ const sizeClass = computed(() => {
       offset-distance="0"
     >
       <img
-        :src="realmoji.uri"
-        :alt="`${realmoji.userName} reacted ${realmoji.emoji}`"
+        :src="realmoji.uri ?? realmoji.media.url"
+        :alt="`${realmoji.user.username} reacted ${realmoji.emoji}`"
         loading="lazy"
         class="rounded-full border-2 border-black"
         :class="sizeClass"
@@ -41,28 +43,40 @@ const sizeClass = computed(() => {
       <template #content>
         <div class="max-w-xs text-center">
           <img
-            :src="realmoji.uri"
-            :alt="`${realmoji.userName} reacted ${realmoji.emoji}`"
+            :src="realmoji.uri ?? realmoji.media.url"
+            :alt="`${realmoji.user.username} reacted ${realmoji.emoji}`"
             loading="lazy"
             class="rounded-lg"
           />
 
           <RouterLink
-            :to="{ name: 'profile', params: { username: realmoji.userName } }"
+            :to="{
+              name: 'profile',
+              params: { username: realmoji.user.username },
+            }"
             class="absolute bottom-0 left-0 mb-2 ml-2 rounded-full bg-zinc-100 px-1 text-center text-sm font-thin text-black"
           >
             {{ realmoji.emoji }}
-            @<span class="font-medium">{{ realmoji.userName }}</span>
+            @<span class="font-medium">{{ realmoji.user.username }}</span>
           </RouterLink>
         </div>
       </template>
     </Popper>
 
     <div
-      v-if="realmojis.length > 6"
-      class="-ml-2 flex h-12 w-12 items-center justify-center rounded-full border border-black bg-zinc-300 text-center font-bold text-black"
+      v-if="limit && total"
+      class="-ml-2 flex items-center justify-center rounded-full border border-black bg-zinc-300 text-center font-bold text-black"
+      :class="sizeClass"
     >
-      +{{ props.realmojis.length - 6 }}
+      +{{ total - realmojis.length }}
+    </div>
+
+    <div
+      v-else-if="realmojis.length > 6"
+      class="-ml-2 flex items-center justify-center rounded-full border border-black bg-zinc-300 text-center font-bold text-black"
+      :class="sizeClass"
+    >
+      +{{ realmojis.length - 6 }}
     </div>
   </div>
 </template>

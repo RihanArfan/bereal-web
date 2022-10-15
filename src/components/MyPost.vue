@@ -3,11 +3,11 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import type { DiscoveryPost } from "@/types/posts";
+import type { Post } from "@/types/posts";
 import { useLocationQuery } from "@/composables/locationApi";
 
 const props = defineProps<{
-  post: DiscoveryPost;
+  post: Post;
   small?: boolean;
   hideRealmojis?: boolean;
   hideDetails?: boolean;
@@ -37,30 +37,32 @@ const humanLateTime = computed(() =>
       class="mx-auto"
       :class="{ 'w-2/5': small }"
       :primary-photo="{
-        url: post.photoURL,
-        height: post.imageHeight,
-        width: post.imageWidth,
+        url: post.primary.url,
+        width: post.primary.width,
+        height: post.primary.height,
       }"
       :secondary-photo="{
-        url: post.secondaryPhotoURL,
-        height: post.secondaryImageHeight,
-        width: post.secondaryImageWidth,
+        url: post.secondary.url,
+        width: post.secondary.width,
+        height: post.secondary.height,
       }"
-      :username="post.userName"
+      :username="post.user.username"
     />
 
     <UserPostRealMojis
-      v-if="post.realMojis.length && !hideRealmojis"
-      :realmojis="post.realMojis"
+      v-if="post.realmojis.sample.length && !hideRealmojis"
+      :realmojis="post.realmojis.sample"
       :size="8"
       class="relative -mt-4 justify-center"
+      :limit="2"
+      :total="post.realmojis.total"
     />
 
     <div v-if="!hideDetails" class="text-center">
       <RouterLink
         :to="{ name: 'caption' }"
         class="text-md block cursor-pointer px-3 font-medium"
-        :class="{ 'mt-1': !post.realMojis.length }"
+        :class="{ 'mt-1': !post.realmojis.sample.length }"
       >
         {{ post.caption }}
         <template v-if="!post.caption">Add a caption...</template>
@@ -72,7 +74,7 @@ const humanLateTime = computed(() =>
 
         <template v-if="post.lateInSeconds">{{ humanLateTime }} late</template>
         <template v-else>
-          {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
+          {{ dayjs(post.takenAt).fromNow() }}
         </template>
       </p>
     </div>
