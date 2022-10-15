@@ -12,7 +12,7 @@ const { isLoading, isError, data, error } = useMyProfileQuery();
   <p v-else-if="isError">Error: {{ error }}</p>
   <template v-if="data">
     <div
-      class="mt-1 h-48 rounded-lg bg-gray-400 bg-cover bg-center"
+      class="mt-1 h-48 rounded-b-lg bg-gray-400 bg-cover bg-center"
       :style="{
         'background-image': `url(${data?.profilePicture?.url})`,
       }"
