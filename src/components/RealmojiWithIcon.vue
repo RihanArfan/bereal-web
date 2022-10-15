@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { AccountRealmoji } from "@/types/types";
+import type { Realmoji } from "@/types/realmojis";
 
-defineProps<{ realmoji: AccountRealmoji }>();
+defineProps<{ realmoji: Realmoji }>();
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Post } from "@/types/types";
+import type { DiscoveryPost } from "@/types/posts";
 
-defineProps<{ post: Post }>();
+defineProps<{ post: DiscoveryPost }>();
 </script>
 
 <template>

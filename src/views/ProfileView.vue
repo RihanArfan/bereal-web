@@ -21,9 +21,9 @@ const {
 });
 
 const profileId = computed(() => {
-  return searchResults.value?.data.find(
+  return searchResults.value!.data.find(
     (result) => result.username === route.params.username
-  )?.id;
+  )!.id;
 });
 
 const isProfileReady = computed(() => {

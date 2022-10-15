@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Popper from "vue3-popper";
-import type { RealMoji } from "@/types/types";
+import type { DiscoveryRealmoji } from "@/types/realmojis";
 
 const props = defineProps<{
-  realmojis: RealMoji[];
+  realmojis: DiscoveryRealmoji[];
   size?: 8 | 12;
 }>();
 
