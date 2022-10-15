@@ -13,11 +13,3 @@ export interface Root {
   next: string | null;
   memoriesSynchronized: boolean;
 }
-
-export interface MemoriesQuery extends Root {
-  data: Memory[];
-}
-
-export interface MemoryQuery extends Root {
-  data: Memory;
-}
