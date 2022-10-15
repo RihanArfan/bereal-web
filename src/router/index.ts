@@ -16,7 +16,7 @@ const router = createRouter({
       component: () => import("@/views/ProfileView.vue"),
     },
     {
-      path: "/me",
+      path: "/profile",
       name: "my-profile",
       component: () => import("@/views/MyProfileView.vue"),
     },
@@ -37,8 +37,13 @@ const router = createRouter({
       ],
     },
     {
-      name: "caption",
+      path: "/me",
+      name: "my-post",
+      component: () => import("@/views/MyPostView.vue"),
+    },
+    {
       path: "/me/caption",
+      name: "caption",
       component: () => import("@/views/MyPostCaptionView.vue"),
     },
     {

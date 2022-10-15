@@ -47,6 +47,7 @@ const humanLateTime = computed(() =>
         height: post.secondary.height,
       }"
       :username="post.user.username"
+      @click="$router.push({ name: 'my-post' })"
     />
 
     <UserPostRealMojis
