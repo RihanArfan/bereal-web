@@ -77,7 +77,5 @@ const {
 
     <p class="mt-1 mb-5">{{ profile?.biography }}</p>
     <p v-if="error" class="mt-1 mb-5">{{ error }}</p>
-
-    {{ !isMyProfile }}
   </div>
 </template>
