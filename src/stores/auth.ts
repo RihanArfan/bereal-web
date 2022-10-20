@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { defineStore } from "pinia";
-import ky, { type Options } from "ky";
+import ky, { HTTPError, type Options } from "ky";
 
 import jwtDecode, { type JwtPayload } from "jwt-decode";
 import { useLocalStorage } from "@vueuse/core";
@@ -65,7 +65,12 @@ export const useAuthStore = defineStore("auth", () => {
       token.value = access_token;
       refresh.value = refresh_token;
     } catch (error) {
-      console.error(error);
+      if (!(error instanceof HTTPError)) throw error;
+      if (error.response.status === 401) {
+        refresh.value = "";
+        const router = useRouter();
+        router.push({ name: "login" });
+      }
     }
   };
 
