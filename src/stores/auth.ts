@@ -10,7 +10,11 @@ import type { RefreshResponse } from "@/types/auth";
 
 export const useAuthStore = defineStore("auth", () => {
   const token = ref<string>();
-  const refresh = useLocalStorage("auth/refresh", "");
+  const refresh = useLocalStorage("token", "");
+
+  const deviceId = ref("");
+  const loginRequestId = ref("");
+  const loginPhone = ref("");
 
   const userId = computed(() => {
     if (!token.value) return undefined;
@@ -75,5 +79,8 @@ export const useAuthStore = defineStore("auth", () => {
     isExpired,
     refreshToken,
     setRefreshToken,
+    deviceId,
+    loginRequestId,
+    loginPhone,
   };
 });

@@ -8,6 +8,8 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AccountIcon: typeof import('./src/components/icons/AccountIcon.vue')['default']
+    AuthButton: typeof import('./src/components/AuthButton.vue')['default']
+    AuthLayout: typeof import('./src/components/AuthLayout.vue')['default']
     BackIcon: typeof import('./src/components/icons/BackIcon.vue')['default']
     FeedLayout: typeof import('./src/components/FeedLayout.vue')['default']
     FriendLayout: typeof import('./src/components/FriendLayout.vue')['default']
@@ -15,6 +17,7 @@ declare module '@vue/runtime-core' {
     MyPost: typeof import('./src/components/MyPost.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     PostPhotos: typeof import('./src/components/PostPhotos.vue')['default']
+    ProjectDescription: typeof import('./src/components/ProjectDescription.vue')['default']
     RealmojiWithIcon: typeof import('./src/components/RealmojiWithIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

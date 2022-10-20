@@ -9,7 +9,21 @@ export interface RefreshResponse {
 }
 
 export interface CheckCodeResponse {
-  status: string;
+  status: "0" | "6" | "16"; // 0 = success, 6 = expired code, 16 = invalid code
   token: string;
   uid: string;
+  error_text?: string;
+}
+
+export interface RequestCodeResponse {
+  status: string;
+  vonageRequestId: string;
+}
+
+export interface ExchangeRefreshResponse {
+  kind: string;
+  idToken: string;
+  refreshToken: string;
+  expiresIn: string;
+  isNewUser: boolean;
 }

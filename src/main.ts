@@ -27,8 +27,9 @@ new QueryClient({
   },
 });
 
+const authStore = useAuthStore();
 const accountStore = useAccountStore();
-accountStore.fetchAccount();
+if (authStore.isLoggedIn) accountStore.fetchAccount();
 
 const intervalMS = 60 * 60 * 500; // 30 minutes
 registerSW({

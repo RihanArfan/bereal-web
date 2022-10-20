@@ -6,9 +6,23 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/login",
-      name: "login",
-      component: () => import("@/views/LoginView.vue"),
+      path: "/auth",
+      component: () => import("@/components/AuthLayout.vue"),
+      children: [
+        {
+          path: "login",
+          name: "login",
+          component: () => import("@/views/LoginView.vue"),
+        },
+        {
+          path: "code",
+          name: "login-code",
+          component: () => import("@/views/LoginCodeView.vue"),
+          beforeEnter: () => {
+            if (!useAuthStore().loginRequestId) return { name: "login" };
+          },
+        },
+      ],
     },
     {
       path: "/@:username(.*)",
@@ -73,7 +87,9 @@ const router = createRouter({
 router.beforeEach((to) => {
   // auth
   const { isLoggedIn } = useAuthStore();
-  if (!isLoggedIn && to.name === "login") return true;
+  if ((!isLoggedIn && to.name === "login") || to.name === "login-code")
+    return true;
+
   if (!isLoggedIn) return { name: "login" };
 
   // my-profile redirect
