@@ -24,7 +24,7 @@ const { isLoading, isError, data, error } = useMyProfileQuery();
         :profile-picture="data?.profilePicture"
         :username="data?.username"
         :size="32"
-        class="border-4 border-black transition-all hover:-mt-14 hover:h-64 hover:w-64 sm:delay-150"
+        class="border-4 border-black transition-all hover:-mt-10 hover:h-64 hover:w-64 sm:delay-150"
       />
 
       <h1 class="mt-2 text-2xl font-semibold">

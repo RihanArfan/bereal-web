@@ -12,6 +12,7 @@ const authStore = useAuthStore();
     class="mx-auto flex max-w-lg flex-col px-2 pb-2 pt-3 sm:px-0 sm:pt-0"
     :class="{
       'mt-12': $route.name !== 'profile' && $route.name !== 'my-profile',
+      'pt-0': $route.name === 'profile' || $route.name === 'my-profile',
     }"
   >
     <RouterView />
