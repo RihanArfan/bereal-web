@@ -10,7 +10,7 @@ export interface PostRealmoji extends Realmoji {
   id: string;
   user: User;
   isInstant: boolean;
-  postedAt: Date;
+  postedAt: string;
 }
 
 export interface DiscoveryRealmoji {

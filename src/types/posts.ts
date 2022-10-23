@@ -1,4 +1,10 @@
-import type { DiscoveryLocation, Location, Picture, Sample, Timestamp } from "@/types/types";
+import type {
+  DiscoveryLocation,
+  Location,
+  Picture,
+  Sample,
+  Timestamp,
+} from "@/types/types";
 import type { DiscoveryRealmoji, PostRealmoji } from "@/types/realmojis";
 import type { User } from "@/types/users";
 
@@ -11,7 +17,7 @@ export interface Post {
   lateInSeconds: number;
   retakeCounter: number;
   canDelete?: boolean;
-  visibility: ["public" | "friends"];
+  visibility?: ["public" | "friends"];
   moment: {
     id: string;
     region: string;
@@ -21,8 +27,8 @@ export interface Post {
   comments: Sample<Comment>;
   realmojis: Sample<PostRealmoji>;
   screenshots: Sample<any>;
-  createdAt: Date;
-  takenAt: Date;
+  createdAt: string;
+  takenAt: string;
 }
 
 export interface DiscoveryPost {
@@ -60,7 +66,7 @@ export interface Comment {
   id: string;
   user: User;
   content: string;
-  postedAt: Date;
+  postedAt: string;
 }
 
 export interface DiscoveryComment {
