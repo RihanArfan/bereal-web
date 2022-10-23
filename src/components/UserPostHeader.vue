@@ -3,16 +3,15 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import type { DiscoveryPost } from "@/types/posts";
-
-const props = defineProps<{ post: DiscoveryPost }>();
+import type { Post } from "@/types/posts";
+const props = defineProps<{ post: Post }>();
 
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
 const { isLoading: isLocationLoading, data } = useLocationQuery(
-  props.post.location?._latitude || 0,
-  props.post.location?._longitude || 0,
+  props.post.location?.latitude,
+  props.post.location?.longitude,
   { enabled: !!props.post.location }
 );
 
@@ -53,7 +52,7 @@ const humanLateTime = computed(() =>
       class="ml-2 flex grow justify-end truncate text-sm font-medium text-gray-300"
     >
       <p :class="{ 'hidden sm:inline-block': !!post.lateInSeconds }">
-        {{ dayjs(post.takenAt._seconds * 1000).fromNow() }}
+        {{ dayjs(post.takenAt).fromNow() }}
       </p>
 
       <p v-if="post.lateInSeconds" class="flex sm:font-light">

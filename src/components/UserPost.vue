@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { DiscoveryPost } from "@/types/posts";
-
-defineProps<{ post: DiscoveryPost }>();
+import type { Post } from "@/types/posts";
+defineProps<{ post: Post }>();
 </script>
 
 <template>
@@ -9,23 +8,15 @@ defineProps<{ post: DiscoveryPost }>();
     <UserPostHeader :post="post" />
 
     <PostPhotos
-      :primary-photo="{
-        url: post.photoURL,
-        height: post.imageHeight,
-        width: post.imageWidth,
-      }"
-      :secondary-photo="{
-        url: post.secondaryPhotoURL,
-        height: post.secondaryImageHeight,
-        width: post.secondaryImageWidth,
-      }"
-      :username="post.userName"
+      :primary-photo="post.primary"
+      :secondary-photo="post.secondary"
+      :username="post.user.username"
     >
       <template #footer>
         <UserPostRealMojis
-          :realmojis="post.realMojis"
+          :realmojis="post.realmojis.sample"
           :limit="6"
-          :total="post.realMojis.length"
+          :total="post.realmojis.total"
           class="absolute bottom-0 left-0 ml-3 mb-3"
         />
       </template>

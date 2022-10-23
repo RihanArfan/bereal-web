@@ -2,13 +2,14 @@
 import { useInfiniteQuery } from "@tanstack/vue-query";
 import { useIntersectionObserver } from "@vueuse/core";
 
-import { useApi } from "@/composables/useApi";
 import type { DiscoveryPost } from "@/types/posts";
 
-const friendsFeedFetcher = async ({ pageParam = "" }) =>
-  await useApi()
+const friendsFeedFetcher = async ({ pageParam = "" }) => {
+  const data = await useApi()
     .get("feeds/discovery", { searchParams: { lastIndex: pageParam } })
     .json<{ posts: DiscoveryPost[]; lastIndex: string }>();
+  return { posts: data.posts.map(feedToPost), lastIndex: data.lastIndex };
+};
 
 const fetchDiscoveryFeed = () =>
   useInfiniteQuery(["discovery-feed"], friendsFeedFetcher, {

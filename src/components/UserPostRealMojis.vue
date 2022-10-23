@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import Popper from "vue3-popper";
-import type { DiscoveryRealmoji, PostRealmoji } from "@/types/realmojis";
+import type { PostRealmoji } from "@/types/realmojis";
 
 const props = defineProps<{
-  realmojis:
-    | Pick<DiscoveryRealmoji, "id" | "user" | "emoji" | "uri">[]
-    | Pick<PostRealmoji, "id" | "user" | "emoji" | "media">[];
+  realmojis: PostRealmoji[];
   size?: 8 | 12 | 16;
   limit: number;
   total?: number;
@@ -37,7 +35,7 @@ const sizeClass = computed(() => {
       offset-distance="0"
     >
       <img
-        :src="realmoji.uri ?? realmoji.media.url"
+        :src="realmoji.media.url"
         :alt="`${realmoji.user.username} reacted ${realmoji.emoji}`"
         loading="lazy"
         class="rounded-full border-2 border-black"
@@ -47,7 +45,7 @@ const sizeClass = computed(() => {
       <template #content>
         <div class="max-w-xs text-center">
           <img
-            :src="realmoji.uri ?? realmoji.media.url"
+            :src="realmoji.media.url"
             :alt="`${realmoji.user.username} reacted ${realmoji.emoji}`"
             loading="lazy"
             class="rounded-lg"
