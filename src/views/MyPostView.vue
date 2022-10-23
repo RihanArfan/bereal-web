@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import UserPostRealMojis from "../components/UserPostRealMojis.vue";
 const { isLoading, data } = usePostQuery("me");
 
 const {
@@ -28,8 +27,8 @@ const {
 
     <div class="mt-2 overflow-x-auto border-t border-zinc-900 py-2">
       <UserPostRealMojis
-        class="gap-3"
         v-if="realmojis"
+        class="gap-3"
         :realmojis="realmojis.data"
         :total="realmojis.data.length"
         :limit="100"
