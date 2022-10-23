@@ -65,12 +65,12 @@ const {
       <template v-else>{{ profile?.fullname }}</template>
     </h1>
 
-    <div class="flex gap-1 text-sm font-semibold text-zinc-600">
+    <div class="text-center text-sm font-semibold text-zinc-600">
       <a :href="`https://bere.al/${profile?.username}`" target="_blank">
         @{{ $route.params.username }}
       </a>
       <p v-if="profile?.createdAt">
-        • Joined {{ dayjs(profile?.createdAt).fromNow() }}
+        Joined {{ dayjs(profile?.createdAt).fromNow() }}
       </p>
     </div>
     <p class="text-sm font-semibold text-zinc-600">{{ profile?.location }}</p>

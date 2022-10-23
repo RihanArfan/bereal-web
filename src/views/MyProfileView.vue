@@ -31,12 +31,12 @@ const { isLoading, isError, data, error } = useMyProfileQuery();
         <template v-else>{{ data?.fullname }}</template>
       </h1>
 
-      <div class="flex gap-1 text-sm font-semibold text-zinc-600">
+      <div class="text-center text-sm font-semibold text-zinc-600">
         <a :href="`https://bere.al/${data?.username}`" target="_blank">
           @{{ data?.username }}
         </a>
         <p v-if="data?.createdAt">
-          • Joined {{ dayjs(data?.createdAt).fromNow() }}
+          Joined {{ dayjs(data?.createdAt).fromNow() }}
         </p>
       </div>
       <p class="text-sm font-semibold text-zinc-600">{{ data?.location }}</p>
