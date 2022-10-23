@@ -1,22 +1,16 @@
 <script setup lang="ts">
+import type { Picture } from "@/types/types";
+
 const props = defineProps<{
-  primaryPhoto: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  secondaryPhoto: {
-    url: string;
-    height: number;
-    width: number;
-  };
+  primary: Picture;
+  secondary: Picture;
   username: string;
 }>();
 
 const isSecondaryLarge = ref(false);
 
 const imageUrl = (primary: boolean) =>
-  primary ? props.primaryPhoto.url : props.secondaryPhoto.url;
+  primary ? props.primary.url : props.secondary.url;
 
 const alt = (primary: boolean) =>
   primary
@@ -31,8 +25,8 @@ const alt = (primary: boolean) =>
       class="rounded-xl bg-zinc-900"
       :alt="alt(!isSecondaryLarge)"
       loading="lazy"
-      :width="primaryPhoto.width"
-      :height="primaryPhoto.height"
+      :width="primary.width"
+      :height="primary.height"
     />
 
     <img
@@ -40,8 +34,8 @@ const alt = (primary: boolean) =>
       :src="imageUrl(isSecondaryLarge)"
       :alt="alt(isSecondaryLarge)"
       loading="lazy"
-      :width="primaryPhoto.width"
-      :height="primaryPhoto.height"
+      :width="secondary.width"
+      :height="secondary.height"
       @click="isSecondaryLarge = !isSecondaryLarge"
     />
 
