@@ -4,12 +4,12 @@ import { QueryClient, VueQueryPlugin } from "@tanstack/vue-query";
 
 import { registerSW } from "virtual:pwa-register";
 
-import App from "./App.vue";
-import router from "./router";
+import App from "@/App.vue";
+import router from "@/router";
 
 import { useAccountStore } from "@/stores/account";
 
-import "./assets/styles.css";
+import "@/assets/styles.css";
 
 const app = createApp(App);
 
