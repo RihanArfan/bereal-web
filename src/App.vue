@@ -1,10 +1,11 @@
 <script setup lang="ts">
-const authStore = useAuthStore();
+const route = useRoute();
+const isAuthPage = computed(() => route.matched.at(0)?.path === "/auth");
 </script>
 
 <template>
   <NavBar
-    v-if="authStore.isLoggedIn"
+    v-if="!isAuthPage"
     class="pt-3 before:absolute before:top-0 before:left-0 before:h-[50px] before:w-3 before:rounded-tl-lg before:shadow-[0_-25px_0_0] before:shadow-black/[97%] before:content-[''] after:absolute after:top-0 after:right-0 after:h-[50px] after:w-3 after:rounded-tr-lg after:shadow-[0_-25px_0_0] after:shadow-black/[97%] after:content-[''] sm:pt-0"
   />
 
