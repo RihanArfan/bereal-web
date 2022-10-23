@@ -13,11 +13,9 @@ const { isLoading, isError, data, error } = useMyProfileQuery();
   <template v-if="data">
     <div
       class="mt-1 h-48 rounded-b-lg bg-gray-400 bg-cover bg-center"
-      :style="{
-        'background-image': `url(${data?.profilePicture?.url})`,
-      }"
+      :style="{ 'background-image': `url(${data?.profilePicture?.url})` }"
     >
-      <div class="h-full rounded-lg backdrop-blur"></div>
+      <div class="h-full rounded-b-lg backdrop-blur"></div>
     </div>
     <div class="relative -mt-24 flex flex-col items-center">
       <UserIcon
