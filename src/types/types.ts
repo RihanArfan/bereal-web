@@ -10,6 +10,11 @@ export interface Picture {
 }
 
 export interface Location {
+  latitude: number;
+  longitude: number;
+}
+
+export interface DiscoveryLocation {
   _latitude: number;
   _longitude: number;
 }

@@ -1,4 +1,4 @@
-import type { Location, Picture, Sample, Timestamp } from "@/types/types";
+import type { DiscoveryLocation, Location, Picture, Sample, Timestamp } from "@/types/types";
 import type { DiscoveryRealmoji, PostRealmoji } from "@/types/realmojis";
 import type { User } from "@/types/users";
 
@@ -43,7 +43,7 @@ export interface DiscoveryPost {
   members: string[];
   lateInSeconds: number;
   isPublic: boolean;
-  location?: Location;
+  location?: DiscoveryLocation;
   caption?: string;
   retakeCounter: number;
   creationDate: Timestamp;

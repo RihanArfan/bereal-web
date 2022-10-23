@@ -17,14 +17,12 @@ dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
 const { isLoading: isLocationLoading, data } = useLocationQuery(
-  props.post.location?._latitude || 0,
-  props.post.location?._longitude || 0,
+  props.post.location?.latitude,
+  props.post.location?.longitude,
   { enabled: !!props.post.location }
 );
 
-const location = computed(
-  () => data.value?.resourceSets[0].resources[0]?.address.countryRegion
-);
+const location = computed(() => data.value?.address.countryRegion);
 
 const humanLateTime = computed(() =>
   dayjs.duration(props.post.lateInSeconds, "s").humanize()
