@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import Popper from "vue3-popper";
-import type { DiscoveryRealmoji } from "@/types/realmojis";
+import type { DiscoveryRealmoji, PostRealmoji } from "@/types/realmojis";
 
 const props = defineProps<{
-  realmojis: DiscoveryRealmoji[];
+  realmojis:
+    | Pick<DiscoveryRealmoji, "id" | "user" | "emoji" | "uri">[]
+    | Pick<PostRealmoji, "id" | "user" | "emoji" | "media">[];
   size?: 8 | 12 | 16;
   limit: number;
   total?: number;
