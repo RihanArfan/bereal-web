@@ -1,9 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/vue-query";
 import type { MaybeRef } from "@tanstack/vue-query/build/lib/types";
 import { useApi } from "@/composables/useApi";
+
+import type { PaginatedResults } from "@/types/types";
 import type { DiscoveryPost, Post } from "@/types/posts";
 import type { PostRealmoji } from "@/types/realmojis";
-import type { PaginatedResults } from "@/types/types";
 
 export const useFriendsFeedQuery = () => {
   const fetcher = async () =>
@@ -24,10 +25,9 @@ export const useRealmojiQuery = (
   { enabled }: { enabled: MaybeRef<boolean | undefined> }
 ) => {
   const fetcher = async () =>
-    (
-      await useApi().get("content/realmojis", { searchParams: { postId: id } })
-        .json
-    )<PaginatedResults<PostRealmoji[]>>();
+    await useApi()
+      .get("content/realmojis", { searchParams: { postId: id } })
+      .json<PaginatedResults<PostRealmoji>>();
 
   return useQuery(["post", id], fetcher, { enabled });
 };
