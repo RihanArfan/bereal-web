@@ -51,14 +51,14 @@ const router = createRouter({
       ],
     },
     {
-      path: "/me",
-      name: "my-post",
-      component: () => import("@/views/MyPostView.vue"),
-    },
-    {
-      path: "/me/caption",
+      path: "/caption",
       name: "caption",
       component: () => import("@/views/MyPostCaptionView.vue"),
+    },
+    {
+      path: "/bereal/:id",
+      name: "post",
+      component: () => import("@/views/PostView.vue"),
     },
     {
       path: "/friends",

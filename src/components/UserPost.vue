@@ -22,8 +22,17 @@ defineProps<{ post: Post }>();
       </template>
     </PostPhotos>
 
-    <p v-if="post.caption" class="text-md mt-1 px-3 font-medium">
+    <p v-if="post.caption" class="text-md mt-1 px-3 font-medium sm:mt-2">
       {{ post.caption }}
     </p>
+
+    <RouterLink
+      class="text-md block px-3 text-gray-500 sm:mt-1"
+      :class="{ 'mt-2 sm:mt-2': !post.caption }"
+      :to="{ name: 'post', params: { id: post.id } }"
+    >
+      <template v-if="post.comments.total">View Comments</template>
+      <template v-else>Add Comment</template>
+    </RouterLink>
   </div>
 </template>

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-const { isLoading, data } = usePostQuery("me");
+const route = useRoute();
+const { isLoading, data } = usePostQuery(route.params.id as string);
 
 const {
   isLoading: isRealmojisLoading,
   isError: isRealmojisError,
   data: realmojis,
   error: realmojisError,
-} = useRealmojiQuery(data.value?.id ?? "", { enabled: !!data.value });
+} = useRealmojiQuery(route.params.id as string, { enabled: true });
 </script>
 
 <template>
@@ -21,13 +22,39 @@ const {
       v-if="data"
       :post="data"
       :hide-realmojis="true"
-      :hide-details="false"
-      class="mx-auto mt-3 sm:mt-9 sm:w-2/3"
+      :hide-details="true"
+      class="mx-auto mt-3 mb-3 sm:mt-9 sm:w-2/3"
     />
 
-    <div class="mt-2 overflow-x-auto border-t border-zinc-900 py-2">
+    <RouterLink
+      v-if="data.canDelete"
+      :to="{ name: 'caption' }"
+      class="text-md block cursor-pointer px-3 text-center font-medium"
+    >
+      {{ data.caption }}
+      <template v-if="!data.caption">Add a caption...</template>
+    </RouterLink>
+
+    <p
+      v-else-if="data.caption"
+      class="text-md cursor-pointer px-3 text-center font-medium"
+    >
+      {{ data.caption }}
+    </p>
+
+    <div
+      v-if="!realmojis?.data.length && !data.comments.total"
+      class="mt-3 text-center"
+    >
+      <p class="fw-bold text-xl">It's quiet here...</p>
+      <p>Be the first to react or comment</p>
+    </div>
+
+    <div
+      v-if="realmojis?.data.length"
+      class="mt-3 overflow-x-auto border-t border-zinc-900 pt-3"
+    >
       <RealMojis
-        v-if="realmojis"
         class="gap-3"
         :realmojis="realmojis.data"
         :total="realmojis.data.length"
@@ -35,7 +62,10 @@ const {
       />
     </div>
 
-    <div class="border-t-2 border-zinc-500 border-opacity-10 py-2">
+    <div
+      v-if="data.comments.total || data.realmojis.total"
+      class="mt-3 border-t border-zinc-900 py-3"
+    >
       <p v-if="!data.comments.total">No comments</p>
 
       <div v-for="comment in data.comments.sample" :key="comment.id">

@@ -29,6 +29,7 @@ const {
     :hide-realmojis="true"
     :hide-details="true"
     class="mx-auto mt-10 w-2/3"
+    @click="$router.push({ name: 'post', params: { id: 'me' } })"
   />
 
   <div

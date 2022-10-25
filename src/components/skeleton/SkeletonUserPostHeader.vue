@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-2 flex items-center px-3">
+  <div class="mb-1 flex items-center px-3 py-1">
     <SkeletonUserIcon />
 
     <div class="ml-3 grow">

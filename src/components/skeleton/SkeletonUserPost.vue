@@ -18,5 +18,9 @@
         alt=""
       /> -->
     </div>
+
+    <div class="mt-3 mb-1 animate-pulse">
+      <div class="h-4 w-1/3 rounded bg-slate-200 sm:w-1/4"></div>
+    </div>
   </div>
 </template>

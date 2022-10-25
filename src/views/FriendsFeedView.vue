@@ -18,12 +18,18 @@ const othersPosts = computed(() =>
 
 <template>
   <template v-if="isMeLoading">
-    <SkeletonMyPost :small="true" class="mb-9" />
+    <SkeletonMyPost :small="true" class="mb-5" />
   </template>
 
   <span v-else-if="isError || isMeError">Error: {{ error }} {{ meError }}</span>
 
-  <MyPost v-if="me" :post="me" :small="true" class="mb-5" />
+  <MyPost
+    v-if="me"
+    :post="me"
+    :small="true"
+    class="mb-5"
+    @click="$router.push({ name: 'post', params: { id: 'me' } })"
+  />
 
   <template v-if="isLoading">
     <SkeletonUserPost v-for="x in 3" :key="x" class="mb-5" />
