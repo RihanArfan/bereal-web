@@ -34,16 +34,8 @@ const humanLateTime = computed(() =>
     <PostPhotos
       class="mx-auto"
       :class="{ 'w-2/5': small }"
-      :primary-photo="{
-        url: post.primary.url,
-        width: post.primary.width,
-        height: post.primary.height,
-      }"
-      :secondary-photo="{
-        url: post.secondary.url,
-        width: post.secondary.width,
-        height: post.secondary.height,
-      }"
+      :primary="post.primary"
+      :secondary="post.secondary"
       :username="post.user.username"
       @click="$router.push({ name: 'my-post' })"
     />

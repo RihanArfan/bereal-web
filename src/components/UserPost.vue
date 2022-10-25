@@ -8,8 +8,8 @@ defineProps<{ post: Post }>();
     <UserPostHeader :post="post" />
 
     <PostPhotos
-      :primary-photo="post.primary"
-      :secondary-photo="post.secondary"
+      :primary="post.primary"
+      :secondary="post.secondary"
       :username="post.user.username"
     >
       <template #footer>
