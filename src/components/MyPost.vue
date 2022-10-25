@@ -53,7 +53,7 @@ const humanLateTime = computed(() =>
       <RouterLink
         :to="{ name: 'caption' }"
         class="text-md block cursor-pointer px-3 font-medium"
-        :class="{ 'mt-1': !post.realmojis.sample.length }"
+        :class="{ 'mt-1': !post.realmojis.sample.length || hideRealmojis }"
       >
         {{ post.caption }}
         <template v-if="!post.caption">Add a caption...</template>
