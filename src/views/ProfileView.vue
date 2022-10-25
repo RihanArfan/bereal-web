@@ -23,11 +23,7 @@ const {
 const profileId = computed(() => {
   return searchResults.value?.data.find(
     (result) => result.username === route.params.username
-  )?.id;
-});
-
-const isProfileReady = computed(() => {
-  return typeof profileId.value !== "undefined";
+  )?.id!;
 });
 
 const {
@@ -36,16 +32,14 @@ const {
   data: profile,
   error,
 } = useProfileQuery(profileId, {
-  enabled: isProfileReady && !isMyProfile.value,
+  enabled: !!profileId.value && !isMyProfile.value,
 });
 </script>
 
 <template>
   <div
     class="h-48 rounded-b-lg bg-gray-400 bg-cover bg-center"
-    :style="{
-      'background-image': `url(${profile?.profilePicture?.url})`,
-    }"
+    :style="{ 'background-image': `url(${profile?.profilePicture?.url})` }"
   >
     <div class="h-full rounded-b-lg backdrop-blur"></div>
   </div>

@@ -10,8 +10,8 @@ dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
 const { isLoading: isLocationLoading, data } = useLocationQuery(
-  props.post.location?.latitude,
-  props.post.location?.longitude,
+  props.post.location?.latitude!,
+  props.post.location?.longitude!,
   { enabled: !!props.post.location }
 );
 
