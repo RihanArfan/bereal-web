@@ -32,7 +32,7 @@ export const useRealmojiQuery = (
       .get("content/realmojis", { searchParams: { postId: id } })
       .json<PaginatedResults<PostRealmoji>>();
 
-  return useQuery(["post", id], fetcher, { enabled });
+  return useQuery(["post", "realmoji", id], fetcher, { enabled });
 };
 
 export const useUpdateCaptionMutation = () => {
