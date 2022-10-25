@@ -19,7 +19,7 @@ dayjs.extend(relativeTime);
 const { isLoading: isLocationLoading, data } = useLocationQuery(
   props.post.location?.latitude!,
   props.post.location?.longitude!,
-  { enabled: !!props.post.location }
+  { enabled: !!props.post.location && !props.hideDetails }
 );
 
 const location = computed(() => data.value?.address.countryRegion);
@@ -37,7 +37,6 @@ const humanLateTime = computed(() =>
       :primary="post.primary"
       :secondary="post.secondary"
       :username="post.user.username"
-      @click="$router.push({ name: 'my-post' })"
     />
 
     <RealMojis
@@ -58,6 +57,7 @@ const humanLateTime = computed(() =>
         {{ post.caption }}
         <template v-if="!post.caption">Add a caption...</template>
       </RouterLink>
+
       <p class="text-center text-xs font-normal text-gray-500">
         <template v-if="post.location && !isLocationLoading">
           {{ location }} •
