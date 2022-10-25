@@ -7,7 +7,7 @@ const router = createRouter({
   routes: [
     {
       path: "/auth",
-      component: () => import("@/components/AuthLayout.vue"),
+      component: () => import("@/components/layouts/AuthLayout.vue"),
       children: [
         {
           path: "login",
@@ -36,7 +36,7 @@ const router = createRouter({
     },
     {
       path: "",
-      component: () => import("@/components/FeedLayout.vue"),
+      component: () => import("@/components/layouts/FeedLayout.vue"),
       children: [
         {
           path: "",
@@ -62,7 +62,7 @@ const router = createRouter({
     },
     {
       path: "/friends",
-      component: () => import("@/components/FriendLayout.vue"),
+      component: () => import("@/components/layouts/FriendLayout.vue"),
       children: [
         {
           path: "",
