@@ -40,7 +40,7 @@ const humanLateTime = computed(() =>
       @click="$router.push({ name: 'my-post' })"
     />
 
-    <UserPostRealMojis
+    <RealMojis
       v-if="post.realmojis.sample.length && !hideRealmojis"
       :realmojis="post.realmojis.sample"
       :size="8"

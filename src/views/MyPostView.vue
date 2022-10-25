@@ -26,7 +26,7 @@ const {
     />
 
     <div class="mt-2 overflow-x-auto border-t border-zinc-900 py-2">
-      <UserPostRealMojis
+      <RealMojis
         v-if="realmojis"
         class="gap-3"
         :realmojis="realmojis.data"

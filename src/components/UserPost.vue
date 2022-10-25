@@ -13,7 +13,7 @@ defineProps<{ post: Post }>();
       :username="post.user.username"
     >
       <template #footer>
-        <UserPostRealMojis
+        <RealMojis
           :realmojis="post.realmojis.sample"
           :limit="6"
           :total="post.realmojis.total"
