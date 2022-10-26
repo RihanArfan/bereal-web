@@ -1,9 +1,9 @@
-type Env = { GOOGLE_SECRET: string };
+import { Env } from "@/types/auth";
 
-export const onRequestPost: PagesFunction<Env> = async ({ request }) => {
+export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const body = await request.json<{ deviceId: string; phone: string }>();
 
-  const url = new URL("***REMOVED***");
+  const url = new URL(env.BEREAL_AUTH_REQUEST_ENDPOINT);
 
   const requestRequest = new Request(url.toString(), {
     body: JSON.stringify({ deviceId: body.deviceId, phoneNumber: body.phone }),
@@ -15,7 +15,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request }) => {
   requestRequest.headers.set("User-Agent", "RihanArfan/bereal-web");
 
   const response = await fetch(requestRequest);
-  if (!response.ok) return errorResponse("Failed to get refresh token", 400);
+  if (!response.ok) return errorResponse("failed to request code", 400);
 
   return new Response(JSON.stringify(await response.json()));
 };

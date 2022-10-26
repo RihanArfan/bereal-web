@@ -1,5 +1,4 @@
-import type { CheckCodeResponse } from "../../../../src/types/auth";
-type Env = { GOOGLE_SECRET: string };
+import { Env, CheckCodeResponse } from "@/types/auth";
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const body = await request.json<{ request_id: string; code: string }>();
@@ -8,7 +7,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   if (!body.code) return errorResponse("code is required", 400);
   if (body.code.length !== 6) return errorResponse("code is invalid", 401);
 
-  const validateResponse = await validateCode(body.request_id, body.code);
+  const validateResponse = await validateCode(env, body.request_id, body.code);
   if (!validateResponse.ok) return errorResponse("failed to check code", 500);
 
   const validateResponseBody = await validateResponse.json<CheckCodeResponse>();
@@ -28,8 +27,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 const errorResponse = (message: string, status: number) =>
   new Response(JSON.stringify({ message }), { status });
 
-const validateCode = (request_id: string, code: string) => {
-  const url = new URL("***REMOVED***");
+const validateCode = (env: Env, request_id: string, code: string) => {
+  const url = new URL(env.BEREAL_AUTH_VERIFY_ENDPOINT);
 
   const request = new Request(url.toString(), {
     body: JSON.stringify({ vonageRequestId: request_id, code }),
@@ -44,9 +43,7 @@ const validateCode = (request_id: string, code: string) => {
 };
 
 const requestRefreshToken = (env: Env, token: string) => {
-  const url = new URL(
-    "***REMOVED***"
-  );
+  const url = new URL(env.GOOGLE_TOKEN_ENDPOINT);
   url.searchParams.set("key", env.GOOGLE_SECRET);
 
   const request = new Request(url.toString(), {

@@ -1,4 +1,5 @@
 import jwtDecode, { type JwtPayload } from "jwt-decode";
+import { Env } from "@/types/auth";
 
 const isExpired = (token: string): boolean => {
   const decoded = jwtDecode<JwtPayload>(token);
@@ -11,14 +12,20 @@ const formatPath = (query: string | string[]): string => {
   return query.replace(",", "/");
 };
 
-export const onRequest: PagesFunction = async ({ request, params }) => {
+export const onRequest: PagesFunction<Env> = async ({
+  request,
+  params,
+  env,
+}) => {
   const token = request.headers.get("Authorization")?.replace("Bearer ", "");
   if (!token || isExpired(token))
-    return new Response("Unauthorized", { status: 401 });
+    return new Response("unauthorised", { status: 401 });
 
-  const API_ENDPOINT = "***REMOVED***";
   const search = new URL(request.url).search;
-  const url = new URL(`/api/${formatPath(params.api)}${search}`, API_ENDPOINT);
+  const url = new URL(
+    `/api/${formatPath(params.api)}${search}`,
+    env.BEREAL_API_ENDPOINT
+  );
 
   const headers = new Headers();
   headers.set("Accept", request.headers.get("Accept"));

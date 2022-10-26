@@ -27,3 +27,12 @@ export interface ExchangeRefreshResponse {
   expiresIn: string;
   isNewUser: boolean;
 }
+
+export type Env = {
+  BEREAL_API_ENDPOINT: string;
+  BEREAL_AUTH_REQUEST_ENDPOINT: string;
+  BEREAL_AUTH_VERIFY_ENDPOINT: string;
+  GOOGLE_SECRET: string;
+  GOOGLE_TOKEN_ENDPOINT: string;
+  GOOGLE_REFRESH_ENDPOINT: string;
+};
