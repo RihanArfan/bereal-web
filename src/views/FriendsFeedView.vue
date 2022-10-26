@@ -28,7 +28,8 @@ const othersPosts = computed(() =>
     :post="me"
     :small="true"
     class="mb-5"
-    @click="$router.push({ name: 'post', params: { id: 'me' } })"
+    @click.stop
+    @open="$router.push({ name: 'post', params: { id: 'me' } })"
   />
 
   <template v-if="isLoading">

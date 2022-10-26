@@ -13,6 +13,8 @@ const props = defineProps<{
   hideDetails?: boolean;
 }>();
 
+defineEmits(["open"]);
+
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
@@ -37,6 +39,7 @@ const humanLateTime = computed(() =>
       :primary="post.primary"
       :secondary="post.secondary"
       :username="post.user.username"
+      @click="() => $emit('open')"
     />
 
     <RealMojis
