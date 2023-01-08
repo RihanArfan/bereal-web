@@ -12,6 +12,11 @@ export default defineConfig({
   build: {
     target: "esnext",
   },
+  server: {
+    proxy: {
+      "/api": "http://localhost:8788",
+    },
+  },
   plugins: [
     vue(),
     Components({}),

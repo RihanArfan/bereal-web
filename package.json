@@ -2,7 +2,9 @@
   "name": "bereal",
   "version": "0.0.0",
   "scripts": {
-    "dev": "wrangler pages dev -- vite",
+    "dev": "run-p dev:*",
+    "dev:frontend": "vite",
+    "dev:api": "wrangler pages dev --proxy 5173 --compatibility-date=2023-01-08 --log-level warn",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
