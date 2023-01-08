@@ -55,12 +55,9 @@ export interface CommonFriend extends User {
   fullname: string;
 }
 
-export interface SearchProfile {
-  id: string;
-  username: string;
+export interface SearchProfile extends User {
   fullname: string;
   location?: string;
-  profilePicture?: Picture;
   status: string;
   mutualFriends: number;
 }
@@ -69,4 +66,9 @@ export interface BlockedUser {
   userId: string;
   blockedAt: Date;
   user: Omit<Friend, "status">;
+}
+
+export interface FriendSuggestion extends User {
+  fullname: string;
+  mutualFriends: number;
 }
