@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useInfiniteQuery } from "@tanstack/vue-query";
-import { useIntersectionObserver } from "@vueuse/core";
+import { vIntersectionObserver } from "@vueuse/components";
 
 import type { DiscoveryPost } from "@/types/posts";
 
@@ -21,8 +21,10 @@ const fetchDiscoveryFeed = () =>
 const { isLoading, isError, isFetchingNextPage, data, error, fetchNextPage } =
   fetchDiscoveryFeed();
 
-const el = ref<HTMLElement | null>(null);
-useIntersectionObserver(el, () => fetchNextPage(), { threshold: 1 });
+const onIntersect = ([{ isIntersecting }]: { isIntersecting: boolean }[]) => {
+  if (!isIntersecting) return;
+  fetchNextPage();
+};
 </script>
 
 <template>
@@ -46,12 +48,6 @@ useIntersectionObserver(el, () => fetchNextPage(), { threshold: 1 });
       <SkeletonUserPost v-for="x in 3" :key="x" class="mb-5" />
     </template>
 
-    <button
-      ref="el"
-      class="mb-3 block w-full rounded bg-white py-1 font-semibold text-black hover:bg-gray-200"
-      @click="() => fetchNextPage()"
-    >
-      Load More
-    </button>
+    <div v-intersection-observer="onIntersect" />
   </template>
 </template>
