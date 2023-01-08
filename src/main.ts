@@ -1,6 +1,11 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import { QueryClient, VueQueryPlugin } from "@tanstack/vue-query";
+import {
+  VueQueryPlugin,
+  type VueQueryPluginOptions,
+} from "@tanstack/vue-query";
+import { persistQueryClient } from "@tanstack/query-persist-client-core";
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 
 import { registerSW } from "virtual:pwa-register";
 
@@ -13,19 +18,27 @@ import "@/assets/styles.css";
 
 const app = createApp(App);
 
-app.use(createPinia());
-app.use(router);
-app.use(VueQueryPlugin);
-
-app.mount("#app");
-
-new QueryClient({
-  defaultOptions: {
-    queries: {
-      cacheTime: 1000 * 60 * 60 * 24, // 24 hours
+const vueQueryOptions: VueQueryPluginOptions = {
+  queryClientConfig: {
+    defaultOptions: {
+      queries: {
+        cacheTime: Infinity,
+      },
     },
   },
-});
+  clientPersister: (queryClient) => {
+    return persistQueryClient({
+      queryClient,
+      persister: createSyncStoragePersister({ storage: localStorage }),
+    });
+  },
+};
+
+app.use(createPinia());
+app.use(router);
+app.use(VueQueryPlugin, vueQueryOptions);
+
+app.mount("#app");
 
 const authStore = useAuthStore();
 const accountStore = useAccountStore();

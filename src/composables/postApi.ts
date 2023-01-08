@@ -13,7 +13,11 @@ export const useFriendsFeedQuery = () => {
     return data.map(feedToPost);
   };
 
-  return useQuery(["friends-feed"], fetcher);
+  return useQuery({
+    queryKey: ["friends-feed"],
+    queryFn: fetcher,
+    cacheTime: 1000 * 60 * 60 * 36, // 36 hours
+  });
 };
 
 export const usePostQuery = (id: string) => {
