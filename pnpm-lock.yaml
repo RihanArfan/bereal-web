@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@cloudflare/workers-types': ^4.20221111.1
   '@rushstack/eslint-patch': ^1.2.0
+  '@tanstack/eslint-plugin-query': ^4.20.10
   '@tanstack/vue-query': ^4.20.9
   '@types/jsdom': ^20.0.1
   '@types/node': ^18.11.18
@@ -59,6 +60,7 @@ dependencies:
 devDependencies:
   '@cloudflare/workers-types': 4.20221111.1
   '@rushstack/eslint-patch': 1.2.0
+  '@tanstack/eslint-plugin-query': 4.20.10
   '@types/jsdom': 20.0.1
   '@types/node': 18.11.18
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
@@ -1928,6 +1930,10 @@ packages:
       json5: 2.2.3
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.8
+    dev: true
+
+  /@tanstack/eslint-plugin-query/4.20.10:
+    resolution: {integrity: sha512-1TJPSP1OrmhRT8PF/3oVWIoSy0G008LKprt3UlxZOiqn0MJZfiH6mkGzdYHxKR/vajPJiSS+bR44tkaPAKT0TQ==}
     dev: true
 
   /@tanstack/match-sorter-utils/8.7.2:

@@ -28,6 +28,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20221111.1",
     "@rushstack/eslint-patch": "^1.2.0",
+    "@tanstack/eslint-plugin-query": "^4.20.10",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^18.11.18",
     "@vitejs/plugin-vue": "^4.0.0",
