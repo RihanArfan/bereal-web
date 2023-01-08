@@ -39,7 +39,7 @@ watch(y, (y) => {
     </RouterLink>
   </nav>
 
-  <main class="mt-9">
+  <main class="mt-10">
     <RouterView />
   </main>
 </template>
