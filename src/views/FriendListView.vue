@@ -25,7 +25,7 @@ const { isLoading, isError, data, error } = useFriendsQuery();
       <UserIcon
         :profile-picture="friend.profilePicture"
         :username="friend.username"
-        :size="14"
+        :size="12"
       />
       <div class="ml-3">
         <p class="">{{ friend.fullname }}</p>
