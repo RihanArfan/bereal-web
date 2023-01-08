@@ -1,15 +1,17 @@
 <script setup lang="ts">
+import { useWindowScroll } from "@vueuse/core";
+
 const showNav = ref(true);
 const lastScrollTop = ref(0);
 
-window.addEventListener("scroll", () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+const { y } = useWindowScroll();
 
-  scrollTop > lastScrollTop.value && scrollTop > 350
+watch(y, (y) => {
+  y > lastScrollTop.value && y > 350
     ? (showNav.value = false)
     : (showNav.value = true);
 
-  lastScrollTop.value = scrollTop;
+  lastScrollTop.value = y;
 });
 </script>
 
