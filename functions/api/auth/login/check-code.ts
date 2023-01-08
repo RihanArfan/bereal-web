@@ -43,7 +43,7 @@ const validateCode = (env: Env, request_id: string, code: string) => {
 };
 
 const requestRefreshToken = (env: Env, token: string) => {
-  const url = new URL(env.GOOGLE_TOKEN_ENDPOINT);
+  const url = new URL(env.GOOGLE_CONVERT_ENDPOINT);
   url.searchParams.set("key", env.GOOGLE_SECRET);
 
   const request = new Request(url.toString(), {
