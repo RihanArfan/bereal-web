@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ky from "ky";
-import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 import type { RequestCodeResponse } from "@/types/auth";
 

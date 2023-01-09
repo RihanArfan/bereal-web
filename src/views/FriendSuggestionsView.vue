@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
 import { vIntersectionObserver } from "@vueuse/components";
 
 import type { PaginatedResults } from "@/types/types";

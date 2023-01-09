@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ky, { HTTPError } from "ky";
-import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 import type { ExchangeRefreshResponse } from "@/types/auth";
 
