@@ -46,7 +46,7 @@ const {
   <div class="relative -mt-24 flex flex-col items-center">
     <UserIcon
       :profile-picture="profile?.profilePicture"
-      :username="profile?.username ?? route.params.username"
+      :username="profile?.username ?? route.params.username as string"
       :size="32"
       class="border-4 border-black transition-all hover:-mt-10 hover:h-64 hover:w-64 sm:delay-150"
     />
