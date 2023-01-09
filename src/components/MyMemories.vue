@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
 
-import { useApi } from "@/composables/useApi";
 import type { Results } from "@/types/types";
 import type { Memory } from "@/types/memories";
 

@@ -27,9 +27,7 @@ const {
   getNextPageParam: (lastPage) => lastPage.next,
 });
 
-const onIntersect = ([{ isIntersecting }]: {
-  isIntersecting: boolean;
-}[]) => {
+const onIntersect = ([{ isIntersecting }]: { isIntersecting: boolean }[]) => {
   if (!isIntersecting) return;
   fetchNextPage();
 };
