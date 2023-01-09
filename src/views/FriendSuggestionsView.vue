@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useInfiniteQuery } from "@tanstack/vue-query";
 import { RouterLink } from "vue-router";
 import { vIntersectionObserver } from "@vueuse/components";
 

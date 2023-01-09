@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/vue-query";
 import type { MaybeRef } from "@vueuse/core";
 import type { Account } from "@/types/users";
 

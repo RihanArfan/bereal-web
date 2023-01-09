@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useInfiniteQuery } from "@tanstack/vue-query";
 import { vIntersectionObserver } from "@vueuse/components";
 
 import type { DiscoveryPost } from "@/types/posts";

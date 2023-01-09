@@ -28,7 +28,18 @@ export default defineConfig({
         /\.vue$/,
         /\.vue\?vue/,
       ],
-      imports: ["vue", "vue-router"],
+      imports: [
+        "vue",
+        "vue-router",
+        {
+          "@tanstack/vue-query": [
+            "useQuery",
+            "useInfiniteQuery",
+            "useMutation",
+            "useQueryClient",
+          ],
+        },
+      ],
       dirs: ["./src/composables", "./src/stores"],
       dts: true,
     }),

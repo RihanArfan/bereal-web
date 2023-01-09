@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/vue-query";
 import { useApi } from "@/composables/useApi";
 
 export const useMemoriesQuery = () => {

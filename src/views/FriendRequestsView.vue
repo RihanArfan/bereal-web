@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useQuery } from "@tanstack/vue-query";
-
 import type { Friend } from "@/types/users";
 
 const incomingFriendListFetcher = async () =>
