@@ -37,6 +37,7 @@ export default defineConfig({
             "useInfiniteQuery",
             "useMutation",
             "useQueryClient",
+            "QueryCache",
           ],
         },
       ],
