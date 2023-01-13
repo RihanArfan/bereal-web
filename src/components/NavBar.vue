@@ -4,6 +4,16 @@ import { useAccountStore } from "@/stores/account";
 
 const accountStore = useAccountStore();
 const { account } = storeToRefs(accountStore);
+
+const route = useRoute();
+
+const scrollToTop = () => {
+  if (route.name === "friends-feed")
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+};
 </script>
 <template>
   <header
@@ -31,6 +41,7 @@ const { account } = storeToRefs(accountStore);
           src="@/assets/text.png"
           class="mx-auto invert"
           width="90"
+          @click="scrollToTop"
         />
       </RouterLink>
 
