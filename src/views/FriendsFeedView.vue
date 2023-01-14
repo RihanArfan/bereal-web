@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
+import { HTTPError } from "ky";
 
 const authStore = useAuthStore();
 const { isLoading, isError, data, error } = useFriendsFeedQuery();
@@ -21,7 +22,15 @@ const othersPosts = computed(() =>
     <SkeletonMyPost :small="true" class="mb-5" />
   </template>
 
-  <span v-else-if="isError || isMeError">Error: {{ error }} {{ meError }}</span>
+  <template v-else-if="isMeError">
+    <CreatePost
+      v-if="meError instanceof HTTPError && meError.response.status === 404"
+      :small="true"
+      class="mb-5"
+    />
+
+    <span v-else>Error: {{ meError }}</span>
+  </template>
 
   <MyPost
     v-if="me"
@@ -35,6 +44,8 @@ const othersPosts = computed(() =>
   <template v-if="isLoading">
     <SkeletonUserPost v-for="x in 3" :key="x" class="mb-5" />
   </template>
+
+  <span v-else-if="isError">Error: {{ error }}</span>
 
   <template v-if="data">
     <UserPost

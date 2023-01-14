@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     AuthButton: typeof import('./src/components/AuthButton.vue')['default']
     AuthLayout: typeof import('./src/components/layouts/AuthLayout.vue')['default']
     BackIcon: typeof import('./src/components/icons/BackIcon.vue')['default']
+    CreatePost: typeof import('./src/components/CreatePost.vue')['default']
     FeedLayout: typeof import('./src/components/layouts/FeedLayout.vue')['default']
     FriendLayout: typeof import('./src/components/layouts/FriendLayout.vue')['default']
     MyMemories: typeof import('./src/components/MyMemories.vue')['default']
