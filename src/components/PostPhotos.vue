@@ -28,7 +28,8 @@ const alt = (primary: boolean) =>
 const primaryEl = ref<HTMLImageElement | null>(null);
 const secondaryEl = ref<HTMLImageElement | null>(null);
 
-const { width: pWidth, height: primaryHeight } = useElementBounding(primaryEl);
+const { width: primaryWidth, height: primaryHeight } =
+  useElementBounding(primaryEl);
 const { width: secondaryWidth } = useElementBounding(secondaryEl);
 
 // Bind to the element or component reference and init style properties that will be animated.
