@@ -40,6 +40,7 @@ const onIntersect = ([{ isIntersecting }]: { isIntersecting: boolean }[]) => {
         :key="post.id"
         :post="post"
         class="mb-5"
+        :hide-comments="true"
       />
     </div>
 

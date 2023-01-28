@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Post } from "@/types/posts";
-defineProps<{ post: Post }>();
+
+defineProps<{ post: Post; hideComments?: boolean }>();
 </script>
 
 <template>
@@ -27,6 +28,7 @@ defineProps<{ post: Post }>();
     </p>
 
     <RouterLink
+      v-if="!hideComments"
       class="text-md block px-3 text-gray-500 sm:mt-1"
       :class="{ 'mt-2 sm:mt-2': !post.caption }"
       :to="{ name: 'post', params: { id: post.id } }"
