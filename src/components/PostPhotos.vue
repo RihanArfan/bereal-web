@@ -103,7 +103,7 @@ const dragModule = useDrag(dragHandler, {
       :height="primary.height"
     />
 
-    <div ref="secondaryEl" class="absolute top-0 left-0 z-10 mx-3 mt-3 w-1/3">
+    <div ref="secondaryEl" class="absolute top-0 left-0 mx-3 mt-3 w-1/3">
       <img
         class="w-full cursor-move rounded-xl border-2 border-black bg-zinc-800"
         :src="imageUrl(isSecondaryLarge)"
