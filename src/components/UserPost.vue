@@ -31,8 +31,10 @@ defineProps<{ post: Post }>();
       :class="{ 'mt-2 sm:mt-2': !post.caption }"
       :to="{ name: 'post', params: { id: post.id } }"
     >
-      <template v-if="post.comments.total">View Comments</template>
-      <template v-else>Add Comment</template>
+      <template v-if="post.comments.total">
+        View all {{ post.comments.total }} comments
+      </template>
+      <template v-else>Add a comment...</template>
     </RouterLink>
   </div>
 </template>
