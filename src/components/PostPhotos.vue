@@ -69,16 +69,10 @@ const dragHandler = ({
   const isRight = x + secondaryWidth.value / 2 > primaryWidth.value / 2;
   const isLeft = !isRight;
 
-  // console.log({ x, y }, primaryHeight.value);
-
   const setHelper = (x: number) => {
     dragModule.config.drag!.initial = [rightX, 0];
 
-    set({
-      x,
-      y: 0,
-      cursor: "grab",
-    });
+    set({ x, y: 0, cursor: "grab" });
   };
 
   if (isRight) return setHelper(rightX);
