@@ -88,6 +88,7 @@ const dragHandler = ({
 const dragModule = useDrag(dragHandler, {
   domTarget: secondaryEl,
   filterTaps: true,
+  preventWindowScrollY: true,
 });
 </script>
 
@@ -105,7 +106,7 @@ const dragModule = useDrag(dragHandler, {
 
     <div ref="secondaryEl" class="absolute top-0 left-0 mx-3 mt-3 w-1/3">
       <img
-        class="w-full cursor-move rounded-xl border-2 border-black bg-zinc-800"
+        class="w-full rounded-xl border-2 border-black bg-zinc-800"
         :src="imageUrl(isSecondaryLarge)"
         :alt="alt(isSecondaryLarge)"
         loading="lazy"
