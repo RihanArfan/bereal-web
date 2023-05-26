@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   ],
 
   ssr: false,
+
   // TODO: SSR for landing/auth
   // https://nuxt.com/docs/guide/concepts/rendering#route-rules
 
@@ -138,4 +139,6 @@ export default defineNuxtConfig({
       bingMapsKey: "",
     },
   },
+
+  devtools: true
 });
