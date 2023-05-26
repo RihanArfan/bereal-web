@@ -11,32 +11,26 @@
     "dev:api": "wrangler pages dev --proxy 5173 --compatibility-date=2023-01-08 --log-level warn"
   },
   "dependencies": {
-    "@tanstack/query-persist-client-core": "5.0.0-alpha.26",
-    "@tanstack/query-sync-storage-persister": "5.0.0-alpha.26",
-    "@tanstack/vue-query": "5.0.0-alpha.26",
+    "@tanstack/query-persist-client-core": "4.29.7",
+    "@tanstack/query-sync-storage-persister": "4.29.7",
+    "@tanstack/vue-query": "4.29.7",
     "@vueuse/components": "^10.1.2",
     "@vueuse/core": "^10.1.2",
     "@vueuse/gesture": "2.0.0-beta.1",
-    "@vueuse/motion": "2.0.0-beta.12",
+    "@vueuse/motion": "2.0.0",
     "jwt-decode": "^3.1.2"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
-    "@nuxtjs/tailwindcss": "^6.6.7",
-    "@tanstack/eslint-plugin-query": "^4.29.4",
-    "@vite-pwa/nuxt": "^0.0.7",
+    "@nuxtjs/tailwindcss": "^6.7.0",
+    "@tanstack/eslint-plugin-query": "^4.29.9",
+    "@vite-pwa/nuxt": "^0.0.9",
     "@vueuse/nuxt": "^10.1.2",
-    "eslint": "^8.40.0",
+    "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
-    "nuxt": "^3.4.3",
-    "nuxt-icon": "^0.4.0",
+    "nuxt": "^3.5.1",
+    "nuxt-icon": "^0.4.1",
     "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.2.8",
-    "wrangler": "^2.19.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "consola": "3.0.1"
-    }
+    "prettier-plugin-tailwindcss": "^0.3.0"
   }
 }
