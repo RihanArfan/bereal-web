@@ -11,9 +11,9 @@
     "dev:api": "wrangler pages dev --proxy 5173 --compatibility-date=2023-01-08 --log-level warn"
   },
   "dependencies": {
-    "@tanstack/query-persist-client-core": "4.29.7",
-    "@tanstack/query-sync-storage-persister": "4.29.7",
-    "@tanstack/vue-query": "4.29.7",
+    "@tanstack/query-persist-client-core": "4.29.11",
+    "@tanstack/query-sync-storage-persister": "4.29.11",
+    "@tanstack/vue-query": "4.29.11",
     "@vueuse/components": "^10.1.2",
     "@vueuse/core": "^10.1.2",
     "@vueuse/gesture": "2.0.0-beta.1",
@@ -21,6 +21,7 @@
     "jwt-decode": "^3.1.2"
   },
   "devDependencies": {
+    "@nuxt/devtools": "^0.5.5",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxtjs/tailwindcss": "^6.7.0",
     "@tanstack/eslint-plugin-query": "^4.29.9",
