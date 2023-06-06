@@ -1,7 +1,51 @@
+<script setup lang="ts">
+const isDark = usePreferredDark();
+</script>
+
 <template>
-  <VitePwaManifest />
-  <NuxtLoadingIndicator />
   <div>
-    <NuxtWelcome />
+    <Head>
+      <Title>BeReal</Title>
+
+      <Link v-if="isDark" rel="icon" href="/icons/favicon-white.webp" />
+      <Link v-else rel="icon" href="/icons/favicon.webp" />
+
+      <!-- apple -->
+      <Link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+      <Link
+        rel="mask-icon"
+        href="/icons/safari-pinned-tab.svg"
+        color="#000000"
+      />
+
+      <Meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+      />
+      <Meta name="apple-mobile-web-app-capable" content="yes" />
+      <Meta name="mobile-web-app-capable" content="yes" />
+
+      <!-- twitter -->
+      <Meta name="twitter:card" content="summary" />
+      <Meta name="twitter:site" content="@BeReal_App" />
+      <Meta name="twitter:title" content="BeReal" />
+
+      <!-- og -->
+      <Meta property="og:title" content="BeReal" />
+      <Meta property="og:type" content="website" />
+      <Meta property="og:image" content="/icons/logo.png" />
+      <Meta
+        property="og:description"
+        content="BeReal is an app where everyday at a different time, everyone is notified simultaneously to capture and share a photo in 2 minutes."
+      />
+    </Head>
+
+    <Body class="bg-black text-white" />
+
+    <VitePwaManifest />
+    <NuxtLoadingIndicator />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
