@@ -27,9 +27,9 @@
     "@tanstack/eslint-plugin-query": "^4.29.9",
     "@vite-pwa/nuxt": "^0.0.9",
     "@vueuse/nuxt": "^10.1.2",
-    "eslint": "^8.41.0",
+    "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
-    "nuxt": "^3.5.1",
+    "nuxt": "^3.5.3",
     "nuxt-icon": "^0.4.1",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0"
