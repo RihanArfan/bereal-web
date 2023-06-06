@@ -79,21 +79,6 @@ export default defineNuxtConfig({
           id: "id1459645446",
         },
       ],
-      shortcuts: [
-        {
-          name: "Open discovery",
-          short_name: "Discovery",
-          url: "/discovery",
-          description: "View BeReals posted publicly",
-          icons: [
-            {
-              src: "/icons/shortcuts/face-grin-stars-regular.png",
-              type: "image/png",
-              sizes: "512x512",
-            },
-          ],
-        },
-      ],
       screenshots: [
         {
           src: "/screenshots/1.webp",
