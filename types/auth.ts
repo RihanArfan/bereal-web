@@ -9,7 +9,12 @@ export interface RefreshResponse {
 }
 
 export interface CheckCodeResponse {
-  status: "0" | "6" | "16"; // 0 = success, 6 = expired code, 16 = invalid code
+  /**
+   * 0: Success
+   * 6: Code expired
+   * 16: Invalid code
+   */
+  status: "0" | "6" | "16";
   token: string;
   uid: string;
   error_text?: string;
@@ -27,12 +32,3 @@ export interface ExchangeRefreshResponse {
   expiresIn: string;
   isNewUser: boolean;
 }
-
-export type Env = {
-  BEREAL_API_ENDPOINT: string;
-  BEREAL_AUTH_REQUEST_ENDPOINT: string;
-  BEREAL_AUTH_VERIFY_ENDPOINT: string;
-  GOOGLE_SECRET: string;
-  GOOGLE_CONVERT_ENDPOINT: string;
-  GOOGLE_REFRESH_ENDPOINT: string;
-};

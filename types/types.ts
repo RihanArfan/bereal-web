@@ -1,22 +1,7 @@
-export interface Timestamp {
-  _seconds: number;
-  _nanoseconds: number;
-}
-
-export interface Picture {
-  height: number;
-  width: number;
+export interface Media {
   url: string;
-}
-
-export interface Location {
-  latitude: number;
-  longitude: number;
-}
-
-export interface DiscoveryLocation {
-  _latitude: number;
-  _longitude: number;
+  width: number;
+  height: number;
 }
 
 export interface Device {
@@ -39,10 +24,6 @@ export interface Term {
 
 export interface Result<T> {
   data: T;
-}
-
-export interface Results<T> {
-  data: T[];
 }
 
 export interface PaginatedResults<T> {

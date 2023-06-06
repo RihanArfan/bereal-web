@@ -1,43 +1,25 @@
-import type { Device, Picture } from "@/types/types";
-import type { Realmoji } from "@/types/realmojis";
+import type { Device, Media } from "./types";
+import type { RealMoji } from "./posts";
 
 export interface User {
   id: string;
   username: string;
-  profilePicture?: Picture;
+  profilePicture?: Media;
 }
 
+// Profiles
 export interface Friend extends User {
   fullname: string;
   status: string;
 }
 
-export interface Account extends User {
-  birthdate: string;
-  fullname: string;
-  realmojis?: Realmoji[];
-  devices: Device[];
-  stats: {
-    postTotal: number;
-  };
-  canDeletePost: boolean;
-  canUpdateRegion: boolean;
-  phoneNumber: string;
-  biography: string;
-  location: string;
-  countryCode: string;
-  region: string;
-  createdAt: string;
-}
-
-// profiles
 export interface Profile {
   id: string;
   username: string;
   fullname: string;
   biography?: string;
   location?: string;
-  profilePicture?: Picture;
+  profilePicture?: Media;
   relationship: {
     status: string;
     commonFriends: CommonFriends;
@@ -71,4 +53,37 @@ export interface BlockedUser {
 export interface FriendSuggestion extends User {
   fullname: string;
   mutualFriends: number;
+}
+
+// Account
+export interface Account extends User {
+  birthdate: string;
+  fullname: string;
+  realmojis?: RealMoji[];
+  devices: Device[];
+  stats: {
+    postTotal: number;
+  };
+  canDeletePost: boolean;
+  canUpdateRegion: boolean;
+  phoneNumber: string;
+  biography: string;
+  location: string;
+  countryCode: string;
+  region: string;
+  createdAt: string;
+}
+
+export interface Memory {
+  id: string;
+  primary: Media;
+  secondary: Media;
+  thumbnail?: Media;
+  memoryDay: string;
+  isLate: boolean;
+}
+
+export interface Root {
+  next: string | null;
+  memoriesSynchronized: boolean;
 }
