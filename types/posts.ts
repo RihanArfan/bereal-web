@@ -1,5 +1,6 @@
 import type { Media } from "./types";
 import type { User } from "./users";
+
 export interface Posts {
   user: User;
   momentId: string;
@@ -39,7 +40,7 @@ export interface RealMoji {
   id: string;
   user: User;
   media: Media;
-  type: string;
+  type: "up" | "happy" | "surprised" | "heartEyes" | "laughing" | "instant";
   emoji: string;
   isInstant: boolean;
   postedAt: Date;
