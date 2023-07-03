@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-wrap">
-    <aside class="z-40 h-screen w-96">
+    <aside class="z-40 w-96 lg:h-screen">
       <NavBar />
 
       <slot name="sidebar" />

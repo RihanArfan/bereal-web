@@ -24,6 +24,7 @@
     "@nuxt/devtools": "^0.5.5",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxtjs/tailwindcss": "^6.7.0",
+    "@tailwindcss/container-queries": "^0.1.1",
     "@tanstack/eslint-plugin-query": "^4.29.9",
     "@vite-pwa/nuxt": "^0.0.9",
     "@vueuse/nuxt": "^10.1.2",

@@ -40,6 +40,9 @@ devDependencies:
   '@nuxtjs/tailwindcss':
     specifier: ^6.7.0
     version: 6.7.0(rollup@2.79.1)(webpack@5.85.1)
+  '@tailwindcss/container-queries':
+    specifier: ^0.1.1
+    version: 0.1.1(tailwindcss@3.3.2)
   '@tanstack/eslint-plugin-query':
     specifier: ^4.29.9
     version: 4.29.9
@@ -2510,6 +2513,14 @@ packages:
       json5: 2.2.3
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.8
+    dev: true
+
+  /@tailwindcss/container-queries@0.1.1(tailwindcss@3.3.2):
+    resolution: {integrity: sha512-p18dswChx6WnTSaJCSGx6lTmrGzNNvm2FtXmiO6AuA1V4U5REyoqwmT6kgAsIMdjo07QdAfYXHJ4hnMtfHzWgA==}
+    peerDependencies:
+      tailwindcss: '>=3.2.0'
+    dependencies:
+      tailwindcss: 3.3.2
     dev: true
 
   /@tanstack/eslint-plugin-query@4.29.9:

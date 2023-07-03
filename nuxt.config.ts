@@ -1,3 +1,5 @@
+import tailwindContainerQueries from "@tailwindcss/container-queries";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -109,6 +111,12 @@ export default defineNuxtConfig({
           label: "Comment and react on BeReals",
         },
       ],
+    },
+  },
+
+  tailwindcss: {
+    config: {
+      plugins: [tailwindContainerQueries],
     },
   },
 
