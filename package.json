@@ -14,8 +14,8 @@
     "@tanstack/query-persist-client-core": "4.29.11",
     "@tanstack/query-sync-storage-persister": "4.29.11",
     "@tanstack/vue-query": "4.29.11",
-    "@vueuse/components": "^10.1.2",
-    "@vueuse/core": "^10.1.2",
+    "@vueuse/components": "^10.2.1",
+    "@vueuse/core": "^10.2.1",
     "@vueuse/gesture": "2.0.0-beta.1",
     "@vueuse/motion": "2.0.0",
     "jwt-decode": "^3.1.2"
@@ -23,15 +23,15 @@
   "devDependencies": {
     "@nuxt/devtools": "^0.5.5",
     "@nuxt/eslint-config": "^0.1.1",
-    "@nuxtjs/tailwindcss": "^6.7.0",
+    "@nuxtjs/tailwindcss": "^6.8.0",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tanstack/eslint-plugin-query": "^4.29.9",
     "@vite-pwa/nuxt": "^0.0.9",
-    "@vueuse/nuxt": "^10.1.2",
-    "eslint": "^8.42.0",
+    "@vueuse/nuxt": "^10.2.1",
+    "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
-    "nuxt": "^3.5.3",
-    "nuxt-icon": "^0.4.1",
+    "nuxt": "^3.6.1",
+    "nuxt-icon": "^0.4.2",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0"
   }
