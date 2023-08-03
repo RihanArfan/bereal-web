@@ -63,7 +63,7 @@
     "vue-tsc": "^1.0.24",
     "workbox-build": "^6.5.4",
     "workbox-window": "^6.5.4",
-    "wrangler": "^2.7.1"
+    "wrangler": "^3.1.1"
   },
   "peerDependencies": {
     "workbox-build": "^6.5.4",
