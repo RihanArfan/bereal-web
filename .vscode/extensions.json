@@ -3,6 +3,9 @@
     "vue.volar",
     "vue.vscode-typescript-vue-plugin",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "vivaxy.vscode-conventional-commits",
+    "antfu.iconify",
+    "bradlc.vscode-tailwindcss"
   ]
 }
