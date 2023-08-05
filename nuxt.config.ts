@@ -138,7 +138,6 @@ export default defineNuxtConfig({
   },
 
   typescript: {
-    strict: true,
     tsConfig: {
       compilerOptions: {
         moduleResolution: "bundler",
