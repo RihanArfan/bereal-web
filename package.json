@@ -8,7 +8,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "dev:api": "wrangler pages dev --proxy 5173 --compatibility-date=2023-01-08 --log-level warn"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@tanstack/query-persist-client-core": "4.32.6",
