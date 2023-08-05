@@ -1,12 +1,19 @@
 <script setup lang="ts">
+const isBrowser = useMediaQuery("(display-mode: browser)");
+
+useHead({
+  titleTemplate: (titleChunk) => {
+    if (!isBrowser) return titleChunk; // exclude if pwa
+    return titleChunk ? `${titleChunk} | BeReal` : "BeReal";
+  },
+});
+
 const isDark = usePreferredDark();
 </script>
 
 <template>
   <div>
     <Head>
-      <Title>BeReal</Title>
-
       <Link v-if="isDark" rel="icon" href="/icons/favicon-white.webp" />
       <Link v-else rel="icon" href="/icons/favicon.webp" />
 
