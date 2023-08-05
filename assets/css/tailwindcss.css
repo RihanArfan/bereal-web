@@ -6,7 +6,10 @@
 
 @layer base {
   html {
-    font-family: HK Grotesk Regular, system-ui, sans-serif;
+    font-family:
+      HK Grotesk Regular,
+      system-ui,
+      sans-serif;
   }
 }
 
