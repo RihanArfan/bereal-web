@@ -47,7 +47,7 @@ const isDark = usePreferredDark();
       />
     </Head>
 
-    <Body class="bg-black text-white" />
+    <Body class="bg-black text-white overscroll-none" />
 
     <VitePwaManifest />
     <NuxtLoadingIndicator />
