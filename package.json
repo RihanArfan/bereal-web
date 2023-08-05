@@ -11,9 +11,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@tanstack/query-persist-client-core": "4.32.6",
-    "@tanstack/query-sync-storage-persister": "4.32.6",
-    "@tanstack/vue-query": "4.32.6",
+    "@tanstack/query-persist-client-core": "5.0.0-beta.15",
+    "@tanstack/query-sync-storage-persister": "5.0.0-beta.15",
+    "@tanstack/vue-query": "5.0.0-beta.15",
     "@vueuse/components": "^10.3.0",
     "@vueuse/core": "^10.3.0",
     "@vueuse/gesture": "2.0.0-beta.1",
