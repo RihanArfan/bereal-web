@@ -3,10 +3,10 @@ import tailwindContainerQueries from "@tailwindcss/container-queries";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    "@vite-pwa/nuxt",
+    "@nuxthq/ui",
     "@vueuse/nuxt",
-    "@nuxtjs/tailwindcss",
-    "nuxt-icon",
+    "@vueuse/motion/nuxt",
+    "@vite-pwa/nuxt",
   ],
 
   ssr: false,

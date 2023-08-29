@@ -11,28 +11,27 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@nuxt/image": "1.0.0-rc.1",
     "@tanstack/query-persist-client-core": "5.0.0-beta.15",
     "@tanstack/query-sync-storage-persister": "5.0.0-beta.15",
     "@tanstack/vue-query": "5.0.0-beta.15",
     "@vueuse/components": "^10.3.0",
     "@vueuse/core": "^10.3.0",
-    "@vueuse/gesture": "2.0.0-beta.1",
     "@vueuse/motion": "2.0.0",
     "jwt-decode": "^3.1.2"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^0.7.4",
+    "@nuxt/devtools": "^0.8.0",
     "@nuxt/eslint-config": "^0.1.1",
-    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@nuxthq/ui": "^2.7.0",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tanstack/eslint-plugin-query": "^4.32.5",
     "@vite-pwa/nuxt": "^0.1.0",
     "@vueuse/nuxt": "^10.3.0",
-    "eslint": "^8.46.0",
+    "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "nuxt": "^3.6.5",
-    "nuxt-icon": "^0.4.2",
-    "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.4.1"
+    "prettier": "^3.0.2",
+    "prettier-plugin-tailwindcss": "^0.5.3"
   }
 }
