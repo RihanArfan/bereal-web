@@ -1,7 +1,7 @@
 import type { Media } from "./types";
 import type { User } from "./users";
 
-export interface Posts {
+export interface UserPosts {
   user: User;
   momentId: string;
   region: string; // TODO: Specify all possible values
@@ -66,8 +66,8 @@ export interface Music {
 }
 
 export interface FriendsFeed {
-  userPosts: Posts;
-  friendsPosts: Posts[];
+  userPosts: UserPosts;
+  friendsPosts: UserPosts[];
   remainingPosts: number;
   maxPostsPerMoment: number;
 }
