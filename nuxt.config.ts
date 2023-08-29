@@ -4,10 +4,19 @@ import tailwindContainerQueries from "@tailwindcss/container-queries";
 export default defineNuxtConfig({
   modules: [
     "@nuxthq/ui",
+    "@nuxt/image",
     "@vueuse/nuxt",
     "@vueuse/motion/nuxt",
     "@vite-pwa/nuxt",
   ],
+
+  image: {
+    format: ["avif", "webp"],
+    provider: "cloudflare",
+    cloudflare: {
+      baseURL: "https://cdn.bereal.network/",
+    },
+  },
 
   ssr: false,
 

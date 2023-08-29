@@ -82,10 +82,10 @@ useDraggable(secondaryEl, {
 <template>
   <div class="relative top-0 left-0">
     <Transition mode="out-in">
-      <img
+      <NuxtImg
         ref="primaryEl"
         :key="imageSrc"
-        :src="imageSrc"
+        :src="useCdnImage(imageSrc)"
         class="rounded-xl bg-zinc-900 h-full"
         :alt="alt(!isSecondaryLarge)"
         loading="lazy"
@@ -97,16 +97,16 @@ useDraggable(secondaryEl, {
 
     <div
       ref="secondaryEl"
-      class="absolute top-0 left-0 mx-3 mt-3 w-1/3"
+      class="absolute top-0 left-0 mx-3 mt-3 w-1/3 rounded-xl bg-zinc-800"
       draggable
       @click="isSecondaryLarge = !isSecondaryLarge"
       @dragend.prevent="onDragEnd"
     >
       <Transition mode="out-in">
-        <img
+        <NuxtImg
           :key="imageSrcSmall"
-          class="w-full rounded-xl border-2 border-black bg-zinc-800"
-          :src="imageSrcSmall"
+          class="w-full rounded-xl border-2 border-black"
+          :src="useCdnImage(imageSrcSmall)"
           :alt="alt(isSecondaryLarge)"
           loading="lazy"
           :width="secondary.width"
