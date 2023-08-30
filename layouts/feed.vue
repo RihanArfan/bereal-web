@@ -10,6 +10,7 @@ const { isPending, isError, data, error } = useQuery({
 <template>
   <div class="flex text-zinc-100 flex-col md:flex-row">
     <aside
+      id="sidebar"
       class="flex md:h-screen md:bg-neutral-900 md:w-1/3 md:min-w-[24rem] md:sticky top-0"
     >
       <div
@@ -36,3 +37,18 @@ const { isPending, isError, data, error } = useQuery({
     </main>
   </div>
 </template>
+
+<style>
+/* dual screen support */
+@media (horizontal-viewport-segments: 2) {
+  #sidebar {
+    width: env(viewport-segment-width 0 0);
+
+    /* this will prevent content from being rendered behind the device mask */
+    /* whoever made dual screen web support should be ashamed with themselves for allowing this to even be an option */
+    margin-inline-end: calc(
+      env(viewport-segment-left 1 0) - env(viewport-segment-right 0 0)
+    );
+  }
+}
+</style>
