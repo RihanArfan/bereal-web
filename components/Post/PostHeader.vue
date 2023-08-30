@@ -7,15 +7,44 @@ const props = defineProps<{
   user: User;
 }>();
 
+// time + duration
 const timeAgo = useTimeAgo(props.post.takenAt);
 const lateDuration = useLateDuration(
   new Date(props.post.takenAt),
   props.post.lateInSeconds
 );
+
+// context + share
+const { share, isSupported } = useShare();
+
+function shareProfile() {
+  share({
+    text: `Discover @${props.user.username} on BeReal.`,
+    url: `https://bere.al/${props.user.username}`,
+  });
+}
+
+const links = computed(() => [
+  {
+    label: "View Profile",
+    avatar: {
+      src: props.user.profilePicture?.url,
+      alt: props.user.username,
+    },
+    to: `/@${props.user.username}`,
+  },
+  isSupported
+    ? {
+        label: "Share Profile",
+        icon: "i-heroicons-share-20-solid",
+        click: shareProfile,
+      }
+    : null,
+]);
 </script>
 
 <template>
-  <div class="mb-2 flex items-center pl-1 pr-3">
+  <div class="mb-2 flex items-center pl-4 pr-1">
     <NuxtLink :to="`/@${user.username}`" class="flex items-center pr-3">
       <UAvatar
         :src="user.profilePicture?.url"
@@ -53,11 +82,21 @@ const lateDuration = useLateDuration(
     </NuxtLink>
 
     <div
-      class="ml-2 flex grow justify-end truncate text-sm font-medium text-gray-300"
+      class="ml-2 flex grow justify-end truncate text-sm font-medium text-gray-300 items-center"
     >
       <p :class="{ 'hidden sm:inline-block': post.isLate }">
         {{ timeAgo }}
       </p>
+
+      <UPopover>
+        <UButton
+          color="white"
+          variant="link"
+          trailing-icon="i-heroicons-ellipsis-vertical"
+        />
+
+        <template #panel><UVerticalNavigation :links="links" /></template>
+      </UPopover>
     </div>
   </div>
 </template>
