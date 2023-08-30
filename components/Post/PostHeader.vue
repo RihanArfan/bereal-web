@@ -8,23 +8,41 @@ const props = defineProps<{
 }>();
 
 const timeAgo = useTimeAgo(props.post.takenAt);
+const lateDuration = useLateDuration(
+  new Date(props.post.takenAt),
+  props.post.lateInSeconds
+);
 </script>
 
 <template>
-  <div class="mb-1 flex items-center pl-1 pr-3">
-    <NuxtLink
-      :to="`/@${user.username}`"
-      class="flex items-center rounded-lg px-2 py-1 transition-colors duration-200 hover:bg-zinc-900"
-    >
-      <UserIcon
-        :profile-picture="user.profilePicture"
-        :username="user.username"
-        class="mr-3"
-      />
+  <div class="mb-2 flex items-center pl-1 pr-3">
+    <NuxtLink :to="`/@${user.username}`" class="flex items-center pr-3">
+      <UAvatar :src="user.profilePicture?.url" :alt="user.username" size="md" />
 
-      <div>
+      <div class="ml-3">
         <p class="text-md font-medium leading-tight">
           {{ user.username }}
+        </p>
+
+        <p
+          v-if="post.location || post.isLate"
+          class="truncate text-xs text-gray-500"
+        >
+          <span v-if="post.location && isLocationLoading">...</span>
+          <template v-else-if="post.location">
+            {{ location }} United Kingdom
+          </template>
+
+          <span v-if="post.location && post.isLate"> • </span>
+          <span v-if="post.isLate" class="inline-flex">
+            {{ lateDuration?.number }}
+            <span
+              class="max-w-[1ch] lg:max-w-none overflow-hidden whitespace-nowrap mr-1 lg:mr-0.5 lg:ml-0.5"
+            >
+              {{ lateDuration?.unit }}
+            </span>
+            late
+          </span>
         </p>
       </div>
     </NuxtLink>
@@ -32,13 +50,8 @@ const timeAgo = useTimeAgo(props.post.takenAt);
     <div
       class="ml-2 flex grow justify-end truncate text-sm font-medium text-gray-300"
     >
-      <p :class="{ 'hidden sm:inline-block': !!post.isLate }">
+      <p :class="{ 'hidden sm:inline-block': post.isLate }">
         {{ timeAgo }}
-      </p>
-
-      <p v-if="post.isLate" class="flex sm:font-light ml-1">
-        •
-        {{ post.lateInSeconds }}s late
       </p>
     </div>
   </div>
