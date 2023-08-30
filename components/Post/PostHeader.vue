@@ -17,7 +17,12 @@ const lateDuration = useLateDuration(
 <template>
   <div class="mb-2 flex items-center pl-1 pr-3">
     <NuxtLink :to="`/@${user.username}`" class="flex items-center pr-3">
-      <UAvatar :src="user.profilePicture?.url" :alt="user.username" size="md" />
+      <UAvatar
+        :src="user.profilePicture?.url"
+        :alt="user.username"
+        size="md"
+        draggable="false"
+      />
 
       <div class="ml-3">
         <p class="text-md font-medium leading-tight">
