@@ -3,7 +3,7 @@ const isBrowser = useMediaQuery("(display-mode: browser)");
 
 useHead({
   titleTemplate: (titleChunk) => {
-    if (!isBrowser) return titleChunk; // exclude if pwa
+    if (!isBrowser) return titleChunk ?? "BeReal"; // exclude if pwa
     return titleChunk ? `${titleChunk} | BeReal` : "BeReal";
   },
 });
