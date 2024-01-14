@@ -1,4 +1,3 @@
-import tailwindContainerQueries from "@tailwindcss/container-queries";
 import { pwa } from "./config/pwa";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -9,7 +8,18 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@vueuse/motion/nuxt",
     "@vite-pwa/nuxt",
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/fontaine",
   ],
+
+  googleFonts: {
+    families: {
+      Inter: true,
+      Roboto: [500],
+    },
+    prefetch: false,
+    preconnect: false,
+  },
 
   pwa,
 
@@ -23,12 +33,6 @@ export default defineNuxtConfig({
 
   colorMode: {
     preference: "dark",
-  },
-
-  tailwindcss: {
-    config: {
-      plugins: [tailwindContainerQueries],
-    },
   },
 
   // TODO: SSR for landing/auth
