@@ -14,6 +14,8 @@ const isDark = usePreferredDark();
 <template>
   <div>
     <Head>
+      <Html class="dark" />
+
       <Link v-if="isDark" rel="icon" href="/icons/favicon-white.webp" />
       <Link v-else rel="icon" href="/icons/favicon.webp" />
 
@@ -54,5 +56,7 @@ const isDark = usePreferredDark();
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
+
+    <Toaster />
   </div>
 </template>

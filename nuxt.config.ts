@@ -3,7 +3,10 @@ import { pwa } from "./config/pwa";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    "@nuxt/ui",
+    // 'nuxt-auto-parallel-plugins',
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "nuxt-icon",
     "@nuxt/image",
     "@vueuse/nuxt",
     "@vueuse/motion/nuxt",
@@ -29,10 +32,6 @@ export default defineNuxtConfig({
     cloudflare: {
       baseURL: "https://cdn.bereal.network/",
     },
-  },
-
-  colorMode: {
-    preference: "dark",
   },
 
   // TODO: SSR for landing/auth
