@@ -8,30 +8,62 @@ const { isPending, isError, data, error } = useQuery({
 </script>
 
 <template>
-  <div class="flex text-zinc-100 flex-col md:flex-row">
+  <div class="flex flex-col text-zinc-100 md:flex-row">
     <aside
       id="sidebar"
-      class="flex md:h-screen md:bg-neutral-900 md:w-1/3 md:min-w-[24rem] md:sticky top-0"
+      class="top-0 flex md:sticky md:h-full md:w-1/3 md:min-w-[24rem] md:bg-neutral-900 transition-transform"
     >
       <div
-        class="p-2 xl:max-w-2xl mx-auto md:mx-0 md:ml-auto flex flex-col w-full"
+        class="mx-auto flex w-full max-w-md flex-col md:px-2 pt-2 md:mx-0 md:ml-auto md:h-screen"
       >
-        <NavBar />
+        <NavBar>
+          <template #right>
+            <Icon
+              name="heroicons:ellipsis-vertical-20-solid"
+              color="white"
+              class="h-5 w-5"
+            />
+          </template>
+        </NavBar>
 
-        <p v-if="isPending">Pending</p>
-        <p v-if="isError">Error: {{ error }}</p>
+        <p v-if="isError && !data">Error: {{ error }}</p>
+        <template v-if="isPending"><!-- TODO: skeleton --></template>
 
-        <PostMy
-          v-if="data"
-          :key="data.userPosts.user.id"
+        <MyPost
+          v-if="data?.userPosts"
           v-bind="data.userPosts"
-          class="max-w-xs py-5 mx-auto"
+          class="shrink py-3 md:basis-2/3 mt-3"
+          image-class="max-w-[16rem]"
         />
+
+        <div
+          class="fixed bottom-0 left-0 right-0 z-50 mx-auto my-1 mb-3 flex h-12 w-12 shrink-0 items-center justify-center md:relative md:my-auto md:mb-0 md:grow"
+        >
+          <button
+            class="md:border-3 h-12 w-12 rounded-full border-4 border-white ring-2 ring-white transition-all hover:ring-4 active:h-10 active:w-10 active:ring-2 md:h-11 md:w-11"
+          />
+        </div>
+
+        <div
+          class="mb-1 mt-auto hidden shrink-0 items-center gap-4 rounded-lg px-7 py-2 transition-colors hover:bg-black/40 md:flex xl:py-5"
+        >
+          <Avatar>
+            <AvatarImage
+              src="https://github.com/RihanArfan.png"
+              alt="@RihanArfan"
+            />
+            <AvatarFallback>R</AvatarFallback>
+          </Avatar>
+
+          <p class="truncate text-lg font-semibold xl:text-xl">Rihan Arfan</p>
+
+          <Icon name="heroicons:chevron-up" class="mx-1 ml-auto text-xl" />
+        </div>
       </div>
     </aside>
 
-    <main class="md:px-3 pt-5 grow flex justify-center">
-      <div class="sm:max-w-md xl:max-w-lg">
+    <main class="flex grow justify-center pt-5 md:px-3">
+      <div class="max-w-full sm:max-w-sm md:max-w-sm xl:max-w-md">
         <slot />
       </div>
     </main>

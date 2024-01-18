@@ -1,6 +1,8 @@
 <template>
   <div class="flex w-full items-center justify-between px-5 py-3">
-    <UIcon name="i-heroicons-users-20-solid" color="white" class="h-5 w-5" />
+    <slot name="left">
+      <Icon name="heroicons:users-20-solid" color="white" class="h-5 w-5" />
+    </slot>
 
     <img
       alt="BeReal Logo"
@@ -10,10 +12,12 @@
       draggable="false"
     />
 
-    <UIcon
-      name="i-heroicons-ellipsis-vertical-20-solid"
-      color="white"
-      class="h-5 w-5"
-    />
+    <slot name="right">
+      <Icon
+        name="heroicons:ellipsis-vertical-20-solid"
+        color="white"
+        class="h-5 w-5"
+      />
+    </slot>
   </div>
 </template>

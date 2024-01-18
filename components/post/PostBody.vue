@@ -80,32 +80,30 @@ useDraggable(secondaryEl, {
 </script>
 
 <template>
-  <div class="relative top-0 left-0">
-    <Transition mode="out-in">
-      <img
-        ref="primaryEl"
-        :key="imageSrc"
-        :src="imageSrc"
-        class="rounded-xl bg-zinc-900 h-full"
-        :alt="alt(!isSecondaryLarge)"
-        loading="lazy"
-        :width="primary.width"
-        :height="primary.height"
-        draggable="false"
-      />
-    </Transition>
-
-    <div
-      ref="secondaryEl"
-      class="absolute top-0 left-0 mx-3 mt-3 w-1/3 rounded-xl bg-zinc-800"
-      draggable
-      @click="isSecondaryLarge = !isSecondaryLarge"
-      @dragend.prevent="onDragEnd"
-    >
-      <Transition mode="out-in">
+  <div class="relative w-screen max-w-full">
+    <AspectRatio :ratio="3 / 4" class="relative bg-zinc-900 rounded-xl">
+      <Transition>
         <img
-          :key="imageSrcSmall"
-          class="w-full rounded-xl border-2 border-black"
+          ref="primaryEl"
+          :key="imageSrc"
+          :src="imageSrc"
+          class="absolute rounded-xl h-full w-full"
+          :alt="alt(!isSecondaryLarge)"
+          loading="lazy"
+          :width="primary.width"
+          :height="primary.height"
+          draggable="false"
+        />
+      </Transition>
+
+      <div
+        ref="secondaryEl"
+        class="absolute top-0 left-0 mx-3 mt-3 w-1/3 rounded-xl bg-zinc-800"
+        draggable
+        @click="isSecondaryLarge = !isSecondaryLarge"
+      >
+        <img
+          class="rounded-xl border-2 border-black"
           :src="imageSrcSmall"
           :alt="alt(isSecondaryLarge)"
           loading="lazy"
@@ -113,8 +111,8 @@ useDraggable(secondaryEl, {
           :height="secondary.height"
           draggable="false"
         />
-      </Transition>
-    </div>
+      </div>
+    </AspectRatio>
 
     <slot name="footer" />
   </div>
@@ -123,11 +121,11 @@ useDraggable(secondaryEl, {
 <style>
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 0.075s ease-out;
+  transition: opacity 0.25s ease;
 }
 
 .v-enter-from,
 .v-leave-to {
-  opacity: 0.5;
+  opacity: 0;
 }
 </style>
