@@ -72,7 +72,7 @@ const lateDuration = useLateDuration(
 
     <p
       v-if="currentPost?.caption"
-      class="text-md mt-3 md:mt-4 px-3 font-medium sm:mt-2 text-center text-balance"
+      class="text-md mt-3 md:mt-4 px-3 font-medium sm:mt-2 text-center text-balance select-text"
     >
       {{ currentPost.caption }}
     </p>

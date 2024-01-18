@@ -8,7 +8,7 @@ const { isPending, isError, data, error } = useQuery({
 </script>
 
 <template>
-  <div class="flex flex-col text-zinc-100 md:flex-row">
+  <div class="flex flex-col text-zinc-100 md:flex-row select-none">
     <aside
       id="sidebar"
       class="top-0 flex md:sticky md:h-full md:w-1/3 md:min-w-[24rem] md:bg-neutral-900 transition-transform"
@@ -62,7 +62,7 @@ const { isPending, isError, data, error } = useQuery({
       </div>
     </aside>
 
-    <main class="flex grow justify-center pt-5 md:px-3">
+    <main class="flex grow justify-center pt-5 md:px-3 select-auto">
       <div class="max-w-full sm:max-w-sm md:max-w-sm xl:max-w-md">
         <slot />
       </div>
