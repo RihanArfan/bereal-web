@@ -6,33 +6,33 @@ export function useLateDuration(date: Date, secondsLateBy: number) {
   // calculate on-time date - secondsLateBy
   const onTimeDate = new Date(date.getTime() - secondsLateBy * 1000);
 
-  // calculate the difference between the on-time date and now
-  const difference = Date.now() - onTimeDate.getTime();
+  // calculate the difference between the on-time date and post date
+  const difference = date.getTime() - onTimeDate.getTime();
 
-  // if late by less than a minute, return 1m
-  if (difference < 60000) return { number: 1, unit: "minute" };
+  const ONE_MINUTE = 60000;
+  const ONE_HOUR = 3600000;
+  const TWO_HOURS = 7200000;
+  const ONE_DAY = 86400000;
+  const TWO_DAYS = 604800000;
 
-  // if late by less than an hour, return the number of minutes
-  if (difference < 3600000)
-    return {
-      number: Math.floor(difference / 60000),
-      unit: "minutes",
-    };
+  // if late by less than a minute
+  if (difference < ONE_MINUTE) return { number: 1, unit: "minute" };
 
-  // if late by less than a day, return the number of hours
-  if (difference < 86400000)
-    return {
-      number: Math.floor(difference / 3600000),
-      unit: "hours",
-    };
+  // if late by less than an hour
+  if (difference < ONE_HOUR)
+    return { number: Math.floor(difference / ONE_MINUTE), unit: "minutes" };
 
-  // if late by less than 2 days, return 1 day
-  if (difference < 604800000)
-    return {
-      number: Math.floor(difference / 86400000),
-      unit: "day",
-    };
+  // if late by 1 hour
+  if (difference < TWO_HOURS) return { number: 1, unit: "hour" };
+
+  // if late by less than a day
+  if (difference < ONE_DAY)
+    return { number: Math.floor(difference / ONE_HOUR), unit: "hours" };
+
+  // if late by less than 2 days
+  if (difference < TWO_DAYS)
+    return { number: Math.floor(difference / ONE_DAY), unit: "day" };
 
   // return the number of days late by
-  return { number: Math.floor(difference / 86400000), unit: "days" };
+  return { number: Math.floor(difference / ONE_DAY), unit: "days" };
 }
