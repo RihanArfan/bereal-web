@@ -16,11 +16,17 @@ BeReal's Android app was originally _really_ poorly designed, unlike their iOS a
 
 This project still exists since it works on any device, including laptops and tablets.
 
+## Preview
+
+### Sketches
+
+![BeReal Web Wireframe by @RihanArfan](https://github.com/RihanArfan/bereal-web/blob/master/.github/misc/bereal-web-wireframe.png?raw=true)
+
 ## Built with:
 
 - [Nuxt 3 (+ Vue.js)](https://nuxt.com/)
 - [Nuxt Image](https://image.nuxt.com/)
-- [Nuxt UI](https://ui.nuxtlabs.com/)
+- [Shadcn for Vue](https://shadcn-vue.com/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [TanStack Query](https://tanstack.com/query/v5)
 - [VueUse](https://vueuse.org/)
