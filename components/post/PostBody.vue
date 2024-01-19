@@ -81,13 +81,13 @@ useDraggable(secondaryEl, {
 
 <template>
   <div class="relative w-screen max-w-full">
-    <AspectRatio :ratio="3 / 4" class="relative bg-zinc-900 rounded-xl">
+    <AspectRatio :ratio="3 / 4" class="relative rounded-xl bg-zinc-900">
       <Transition>
         <img
           ref="primaryEl"
           :key="imageSrc"
           :src="imageSrc"
-          class="absolute rounded-xl h-full w-full"
+          class="absolute h-full w-full rounded-xl"
           :alt="alt(!isSecondaryLarge)"
           loading="lazy"
           :width="primary.width"
@@ -98,7 +98,7 @@ useDraggable(secondaryEl, {
 
       <div
         ref="secondaryEl"
-        class="absolute top-0 left-0 mx-3 mt-3 w-1/3 rounded-xl bg-zinc-800"
+        class="absolute left-0 top-0 mx-3 mt-3 w-1/3 rounded-xl bg-zinc-800"
         draggable
         @click="isSecondaryLarge = !isSecondaryLarge"
       >

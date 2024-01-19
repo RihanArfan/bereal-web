@@ -11,7 +11,7 @@ const props = defineProps<{
 const timeAgo = useTimeAgo(props.post.takenAt);
 const lateDuration = useLateDuration(
   new Date(props.post.takenAt),
-  props.post.lateInSeconds
+  props.post.lateInSeconds,
 );
 
 // share

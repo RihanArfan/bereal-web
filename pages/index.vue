@@ -17,7 +17,7 @@ const { isPending, isError, data, error } = useQuery({
         v-for="friendPost in data?.friendsPosts"
         :key="friendPost.user.id"
         v-bind="friendPost"
-        class="pb-5 md:pb-7 select-none"
+        class="select-none pb-5 md:pb-7"
       />
     </NuxtLayout>
   </div>

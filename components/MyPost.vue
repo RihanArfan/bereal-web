@@ -12,7 +12,7 @@ const props = defineProps<Props>();
 const sortedPosts = computed(() =>
   props.posts.toSorted((a, b) => {
     return new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime();
-  })
+  }),
 );
 
 const api = ref<CarouselApi>();
@@ -39,7 +39,7 @@ const currentPost = computed(() => sortedPosts.value[current.value - 1]);
 const timeAgo = useTimeAgo(currentPost.value.postedAt);
 const lateDuration = useLateDuration(
   new Date(currentPost.value.takenAt),
-  currentPost.value.lateInSeconds
+  currentPost.value.lateInSeconds,
 );
 </script>
 
@@ -66,18 +66,18 @@ const lateDuration = useLateDuration(
     <RealMojis
       v-if="currentPost.realMojis.length"
       :real-mojis="currentPost.realMojis"
-      class="-mt-4 justify-center z-10"
+      class="z-10 -mt-4 justify-center"
       size="xs"
     />
 
     <p
       v-if="currentPost?.caption"
-      class="text-md mt-3 md:mt-4 px-3 font-medium sm:mt-2 text-center text-balance select-text"
+      class="text-md mt-3 select-text text-balance px-3 text-center font-medium sm:mt-2 md:mt-4"
     >
       {{ currentPost.caption }}
     </p>
 
-    <p v-else class="text-md mt-3 md:mt-4 px-3 font-medium sm:mt-2 text-center">
+    <p v-else class="text-md mt-3 px-3 text-center font-medium sm:mt-2 md:mt-4">
       Add a caption...
     </p>
 

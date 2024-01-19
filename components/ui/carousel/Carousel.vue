@@ -1,33 +1,37 @@
 <script setup lang="ts">
-import emblaCarouselVue from 'embla-carousel-vue'
-import { useProvideCarousel } from './useCarousel'
-import type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface'
-import { cn } from '@/lib/utils'
+import emblaCarouselVue from "embla-carousel-vue";
+import { useProvideCarousel } from "./useCarousel";
+import type {
+  CarouselEmits,
+  CarouselProps,
+  WithClassAsProps,
+} from "./interface";
+import { cn } from "@/lib/utils";
 
 const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {
-  orientation: 'horizontal',
-})
+  orientation: "horizontal",
+});
 
-const emits = defineEmits<CarouselEmits>()
+const emits = defineEmits<CarouselEmits>();
 
-const carouselArgs = useProvideCarousel(props, emits)
+const carouselArgs = useProvideCarousel(props, emits);
 
-defineExpose(carouselArgs)
+defineExpose(carouselArgs);
 
 function onKeyDown(event: KeyboardEvent) {
-  const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'
-  const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'
+  const prevKey = props.orientation === "vertical" ? "ArrowUp" : "ArrowLeft";
+  const nextKey = props.orientation === "vertical" ? "ArrowDown" : "ArrowRight";
 
   if (event.key === prevKey) {
-    event.preventDefault()
-    carouselArgs.scrollPrev()
+    event.preventDefault();
+    carouselArgs.scrollPrev();
 
-    return
+    return;
   }
 
   if (event.key === nextKey) {
-    event.preventDefault()
-    carouselArgs.scrollNext()
+    event.preventDefault();
+    carouselArgs.scrollNext();
   }
 }
 </script>

@@ -8,13 +8,13 @@ const { isPending, isError, data, error } = useQuery({
 </script>
 
 <template>
-  <div class="flex flex-col text-zinc-100 md:flex-row select-none">
+  <div class="flex select-none flex-col text-zinc-100 md:flex-row">
     <aside
       id="sidebar"
-      class="top-0 flex md:sticky md:h-full md:w-1/3 md:min-w-[24rem] md:bg-neutral-900 transition-transform"
+      class="top-0 flex transition-transform md:sticky md:h-full md:w-1/3 md:min-w-[24rem] md:bg-neutral-900"
     >
       <div
-        class="mx-auto flex w-full max-w-md flex-col md:px-2 pt-2 md:mx-0 md:ml-auto md:h-screen"
+        class="mx-auto flex w-full max-w-md flex-col pt-2 md:mx-0 md:ml-auto md:h-screen md:px-2"
       >
         <NavBar>
           <template #right>
@@ -32,7 +32,7 @@ const { isPending, isError, data, error } = useQuery({
         <MyPost
           v-if="data?.userPosts"
           v-bind="data.userPosts"
-          class="shrink py-3 md:basis-2/3 mt-3"
+          class="mt-3 shrink py-3 md:basis-2/3"
           image-class="max-w-[16rem]"
         />
 
@@ -62,7 +62,7 @@ const { isPending, isError, data, error } = useQuery({
       </div>
     </aside>
 
-    <main class="flex grow justify-center pt-5 md:px-3 select-auto">
+    <main class="flex grow select-auto justify-center pt-5 md:px-3">
       <div class="max-w-full sm:max-w-sm md:max-w-sm xl:max-w-md">
         <slot />
       </div>

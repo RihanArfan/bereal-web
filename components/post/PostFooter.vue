@@ -13,7 +13,7 @@ defineProps<Props>();
 
   <NuxtLink
     v-if="!hideComments"
-    class="text-sm block px-4 text-gray-400 mt-2"
+    class="mt-2 block px-4 text-sm text-gray-400"
     :class="{ 'mt-0.5': caption }"
     to="/"
   >

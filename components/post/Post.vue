@@ -13,7 +13,7 @@ const props = defineProps<Props>();
 const sortedPosts = computed(() =>
   props.posts.toSorted((a, b) => {
     return new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime();
-  })
+  }),
 );
 
 const api = ref<CarouselApi>();
@@ -67,7 +67,7 @@ const currentPost = computed(() => sortedPosts.value[current.value - 1]);
       </Carousel>
     </div>
 
-    <div v-if="posts.length > 1" class="flex justify-center text-xl -mb-2">
+    <div v-if="posts.length > 1" class="-mb-2 flex justify-center text-xl">
       <span v-for="i in totalCount" :key="i">
         <span
           class="cursor-pointer"

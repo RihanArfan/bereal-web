@@ -16,7 +16,7 @@ withDefaults(defineProps<Props>(), {
     <Avatar
       v-for="realMoji in realMojis.slice(0, 5)"
       :key="realMoji.id"
-      class="ring-2 ring-black -mr-1"
+      class="-mr-1 ring-2 ring-black"
       :size="size"
     >
       <AvatarImage :src="realMoji.media.url" :alt="realMoji.user.username" />

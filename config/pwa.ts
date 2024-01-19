@@ -9,7 +9,7 @@ export const pwa: ModuleOptions = {
   client: {
     periodicSyncForUpdates: 3600, // 1 hour
   },
-  
+
   manifest: {
     name: "BeReal",
     short_name: "BeReal",

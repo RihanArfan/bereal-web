@@ -5,18 +5,18 @@ import {
   type DropdownMenuContentProps,
   DropdownMenuPortal,
   useForwardPropsEmits,
-} from 'radix-vue'
-import { cn } from '@/lib/utils'
+} from "radix-vue";
+import { cn } from "@/lib/utils";
 
 const props = withDefaults(
   defineProps<DropdownMenuContentProps & { class?: string }>(),
   {
     sideOffset: 4,
   },
-)
-const emits = defineEmits<DropdownMenuContentEmits>()
+);
+const emits = defineEmits<DropdownMenuContentEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits)
+const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
