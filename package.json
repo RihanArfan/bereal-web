@@ -1,6 +1,7 @@
 {
   "name": "bereal",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -35,16 +36,16 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.8",
-    "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/google-fonts": "^3.1.3",
     "@tanstack/eslint-plugin-query": "^5.17.7",
+    "@types/eslint-config-prettier": "^6.11.3",
     "@vite-pwa/nuxt": "^0.4.0",
     "@vueuse/nuxt": "^10.7.2",
-    "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "nuxt": "^3.9.2",
     "nuxt-auto-parallel-plugins": "^1.0.0",
+    "nuxt-module-eslint-config": "^0.0.2",
     "prettier": "^3.2.2",
     "prettier-plugin-tailwindcss": "^0.5.11"
   },

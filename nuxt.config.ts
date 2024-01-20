@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
     "@nuxtjs/google-fonts",
     "@nuxtjs/fontaine",
+    "nuxt-module-eslint-config",
   ],
 
   googleFonts: {
